@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BrooklynBell.wav-bdc4627554fcaa6334cb9727c916b869.sample"
+
+[deps]
+
+source_file="res://Game/SFX/BrooklynBell.wav"
+dest_files=[ "res://.import/BrooklynBell.wav-bdc4627554fcaa6334cb9727c916b869.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
