@@ -2,6 +2,7 @@ extends Sprite
 
 export var type = "b"
 export var input = "ui_accept"
+export var input2 = "ui_accept"
 
 func _input(event:InputEvent):
 	if event.is_action_pressed(input):
