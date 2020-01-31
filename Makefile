@@ -10,12 +10,12 @@ screen:
 	$(GODOT) $(EXPORT) Game Exported/screen.html
 
 controller:
-	sed -i '' 's|run/main_scene="res://Game/GameScene.tscn"|run/main_scene="res://Controller/Controller.tscn"|' project.godot
+	cp project.godot project.godot.orig
+	sed  's|run/main_scene="res://Game/GameScene.tscn"|run/main_scene="res://Controller/Controller.tscn"|' project.godot.orig > project.godot
 	# the minus makes make continue even if the export fails
 	# we use this to make sure that the main scene replacement is reverted
 	-$(GODOT) $(EXPORT) Controller Exported/controller.html
-	sed -i '' 's|run/main_scene="res://Controller/Controller.tscn"|run/main_scene="res://Game/GameScene.tscn"|' project.godot
-
+	mv project.godot.orig project.godot
 serve:
 	cd Exported && python3 -m http.server 8000
 
