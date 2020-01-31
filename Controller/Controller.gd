@@ -15,9 +15,6 @@ func _ready():
 	if not Airconsole.inst:
 		Airconsole.inst = load("res://Controller/ACClient.gd").new()
 		Airconsole.add_child(Airconsole.inst)
-	# send initial device state
-	setDevState("foo", "bar")
-	
 	
 
 func _process(delta):
@@ -57,6 +54,13 @@ func set_ready(v:bool):
 
 
 func _on_JoystickSendTimer_timeout():
-	var js = "ac.setCustomDeviceStateProperty('foo', 'bar');"
+#	var js = "ac.setCustomDeviceStateProperty('foo', 'bar');"
+#	JavaScript.eval(js, true)
+	var js = "ac.setCustomDeviceState(%s)" % JSON.print(devState)
 	JavaScript.eval(js, true)
 	#Airconsole.inst.messageScreen({'input': $Joystick.output.angle()})
+
+
+func _on_Button_button_down():
+	Airconsole.inst.messageScreen({'input': 1})
+	pass

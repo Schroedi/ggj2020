@@ -67,7 +67,7 @@ func messageScreen(msg:Dictionary):
 	
 	# reset everything for next sending
 	nextMsg = {}
-	secondsTilNextSend = 1.01/10 # no more than 10 msges per second
+	secondsTilNextSend = 1.01/20 # no more than 20 msges per second
 	sendQueued = false
 
 

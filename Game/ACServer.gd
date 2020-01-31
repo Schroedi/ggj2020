@@ -25,8 +25,10 @@ func _ready():
 	var restart = false;
 
 	airconsole.onMessage = function(device_id, data) {
-		  if (data.input !== undefined) {
-			PlayerInputs[device_id] = data.input;
+		  if (data.data.input !== undefined) {
+			PlayerInputs[device_id] = data.data.input;
+			console.log('got message');
+			console.log(data.data);
 		  }
 		  if (data.restart !== undefined) {
 			restart = true;
@@ -90,6 +92,9 @@ func updateInputs():
 	var js = """JSON.stringify(PlayerInputs);"""
 	var jsRes = JavaScript.eval(js, false)
 	inputs = JSON.parse(jsRes).result
+	
+	# reset inputs to none
+	JavaScript.eval("PlayerInputs = {};", false)
 
 
 func broadcast(msg:String):

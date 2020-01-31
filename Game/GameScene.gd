@@ -48,8 +48,8 @@ func updatePlayerList():
 		#print("player: " + str(p))
 		var v = previews[i]
 		v.pname = p['name']
-		v.pcolor = Color(p['devstate']['color'])
-		v.pready = p['devstate']['isready']
+		#v.pcolor = Color(p['devstate']['color'])
+		#v.pready = p['devstate']['isready']
 		allready = allready and v.pready
 		
 		players[i].color = v.color

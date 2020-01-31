@@ -1,3 +1,38 @@
-[gd_resource type="AudioBusLayout" format=2]
+[gd_resource type="AudioBusLayout" load_steps=5 format=2]
+
+[sub_resource type="AudioEffectCompressor" id=1]
+resource_name = "Compressor"
+
+[sub_resource type="AudioEffectReverb" id=2]
+resource_name = "Reverb"
+hipass = 0.12
+
+[sub_resource type="AudioEffectPitchShift" id=3]
+resource_name = "PitchShift"
+pitch_scale = 0.42
+
+[sub_resource type="AudioEffectLowPassFilter" id=4]
+resource_name = "LowPassFilter"
+cutoff_hz = 1000.0
 
 [resource]
+bus/0/effect/0/effect = SubResource( 1 )
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource( 2 )
+bus/0/effect/1/enabled = false
+bus/1/name = "Deep"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 1.98485
+bus/1/send = "Master"
+bus/1/effect/0/effect = SubResource( 3 )
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource( 4 )
+bus/1/effect/1/enabled = true
+bus/2/name = "Background"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -5.72686
+bus/2/send = "Master"
