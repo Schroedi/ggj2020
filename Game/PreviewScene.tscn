@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Game/PreviewScene.gd" type="Script" id=1]
+
+[node name="Players_UI" type="ColorRect"]
+margin_right = 220.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 0, 23 )
+color = Color( 0.223529, 0.235294, 0.25098, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerName" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 5.0
+margin_bottom = 5.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Very long Player name"
+
+[node name="LblReady" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 154.0
+margin_top = 5.0
+margin_right = 5.0
+margin_bottom = 5.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "not ready"
