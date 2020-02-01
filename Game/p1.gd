@@ -1,13 +1,15 @@
 extends Node2D
 
 export var types = ['r', 'b']
+export var audioType = [0, 0]
 var type = "b"
+var soundId = 1
 
 
-const sounds = {'r': preload("res://Game/SFX/BrooklynBD.wav"),
-'g': preload("res://Game/SFX/BrooklynBell.wav"),
-'a': preload("res://Game/SFX/BrooklynHH.wav"),
-'b': preload("res://Game/SFX/BrooklynSound 1.wav")}
+const sounds = {'r':[ preload("res://Game/SFX/Schraubschlussel.wav"), preload("res://Game/SFX/Hammer_Bass.wav") ],
+'g': [ preload("res://Game/SFX/Sage.wav"), preload("res://Game/SFX/Rohrzange.wav") ],
+'a': [ preload("res://Game/SFX/Spray.wav"), preload("res://Game/SFX/Hammer_Eisen.wav") ],
+'b': [ preload("res://Game/SFX/Axt.wav"), preload("res://Game/SFX/Pinsel.wav") ]}
 
 
 # id in airconsole player array
@@ -30,8 +32,8 @@ func _ready():
 	$p1/b.visible = types.has('b')
 	$p1/a.visible = types.has('a')
 	
-	$s1.stream = sounds[types[0]]
-	$s2.stream = sounds[types[1]]
+	$s1.stream = sounds[types[0]][audioType[0]]
+	$s2.stream = sounds[types[1]][audioType[1]]
 	$UpdateACInfo.start()
 
 func _input(event:InputEvent):
@@ -40,12 +42,13 @@ func _input(event:InputEvent):
 	if event.is_action_pressed(name + "b"):
 		input_sound(2)
 
-func input_sound(soundId):
+func input_sound(sId):
 	if $p1/AnimationPlayer.is_playing():
 		return
 	# sound id is 1 or 2
 	#get_node("s"+str(soundId)).play()
-	type = types[soundId-1]
+	type = types[sId-1]
+	soundId = sId-1
 	$p1/AnimationPlayer.play("hit")
 
 func collide(t):
@@ -61,7 +64,7 @@ func collide(t):
 		print('wrong tool!')
 		return
 	
-	$s1.stream = sounds[t]
+	$s1.stream = sounds[t][audioType[soundId]]
 	$s1.seek(0)
 	$s1.play()
 	$p1/Area2D2/CollisionShape2D.set_deferred('disabled', true)
