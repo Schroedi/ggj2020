@@ -13,7 +13,9 @@ func _ready():
 #	pass
 
 func _physics_process(delta):
-	position.x += 100 * delta
+	position.x += 200 * delta
+	
+	position.x = fmod(position.x, 1024)
 
 
 func _on_Area2D_body_entered(body):

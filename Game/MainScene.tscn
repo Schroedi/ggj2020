@@ -1,163 +1,20 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://ding.gd" type="Script" id=2]
-[ext_resource path="res://p1.gd" type="Script" id=3]
 [ext_resource path="res://Game/MainScene.gd" type="Script" id=4]
-[ext_resource path="res://Game/SFX/BrooklynSound 1.wav" type="AudioStream" id=5]
 [ext_resource path="res://Game/SFX/Rhythmic Repair Ranch.wav" type="AudioStream" id=6]
+[ext_resource path="res://Game/p1.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 52.3696, 46.4671 )
-
-[sub_resource type="Animation" id=2]
-resource_name = "hit"
-length = 0.5
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/keys = {
-"points": PoolRealArray( 130.65, -0.25, 0, 0.25, 0, 130.65, -0.25, 0, 0.25, 0, 130.65, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.1, 0.5 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 111.739, -0.25, 0, 0.25, 0, 244.389, -0.25, 0, 0.25, 0, 111.739, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.1, 0.5 )
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("s1:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.08 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "hit"
-length = 0.5
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/keys = {
-"points": PoolRealArray( 130.65, -0.25, 0, 0.25, 0, 130.65, -0.25, 0, 0.25, 0, 130.65, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.1, 0.5 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 111.739, -0.25, 0, 0.25, 0, 244.389, -0.25, 0, 0.25, 0, 111.739, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.1, 0.5 )
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("s1:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.08 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "hit"
-length = 0.5
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/keys = {
-"points": PoolRealArray( 130.65, -0.25, 0, 0.25, 0, 130.65, -0.25, 0, 0.25, 0, 130.65, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.1, 0.5 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 111.739, -0.25, 0, 0.25, 0, 244.389, -0.25, 0, 0.25, 0, 111.739, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.1, 0.5 )
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("s1:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.08 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=5]
-resource_name = "hit"
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/keys = {
-"points": PoolRealArray( 130.65, -0.25, 0, 0.25, 0, 130.65, -0.25, 0, 0.25, 0, 130.65, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.1, 0.5 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 111.739, -0.25, 0, 0.25, 0, 244.389, -0.25, 0, 0.25, 0, 111.739, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.1, 0.5 )
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("s1:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.08 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="ding" type="Sprite" parent="."]
-position = Vector2( -111.316, 261.378 )
+position = Vector2( 0, 261.378 )
+scale = Vector2( 0.2, 1 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
@@ -184,6 +41,7 @@ texture = ExtResource( 1 )
 offset = Vector2( -648.625, -176.658 )
 
 [node name="a" type="Sprite" parent="ding"]
+visible = false
 modulate = Color( 1, 0.0980392, 0.952941, 1 )
 position = Vector2( 305.747, 98.0632 )
 scale = Vector2( 0.377654, 0.377654 )
@@ -196,11 +54,13 @@ offset = Vector2( -648.625, -176.658 )
 shape = SubResource( 1 )
 
 [node name="ding2" type="Sprite" parent="."]
-position = Vector2( -338.435, 261.378 )
+position = Vector2( -92, 261.378 )
+scale = Vector2( 0.2, 1 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="r" type="Sprite" parent="ding2"]
+visible = false
 modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 198.753, 96.5421 )
 scale = Vector2( 0.377654, 0.377654 )
@@ -216,6 +76,7 @@ texture = ExtResource( 1 )
 offset = Vector2( -648.625, -176.658 )
 
 [node name="b" type="Sprite" parent="ding2"]
+visible = false
 modulate = Color( 0, 0.333333, 1, 1 )
 position = Vector2( 270.888, 98.0528 )
 scale = Vector2( 0.377654, 0.377654 )
@@ -234,8 +95,51 @@ offset = Vector2( -648.625, -176.658 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ding2/Area2D"]
 shape = SubResource( 1 )
 
+[node name="ding5" type="Sprite" parent="."]
+position = Vector2( -184, 261.378 )
+scale = Vector2( 0.2, 1 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="r" type="Sprite" parent="ding5"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 198.753, 96.5421 )
+scale = Vector2( 0.377654, 0.377654 )
+texture = ExtResource( 1 )
+offset = Vector2( -648.625, -176.658 )
+
+[node name="g" type="Sprite" parent="ding5"]
+visible = false
+modulate = Color( 0.32549, 1, 0, 1 )
+position = Vector2( 235.387, 96.9198 )
+scale = Vector2( 0.377654, 0.377654 )
+texture = ExtResource( 1 )
+offset = Vector2( -648.625, -176.658 )
+
+[node name="b" type="Sprite" parent="ding5"]
+visible = false
+modulate = Color( 0, 0.333333, 1, 1 )
+position = Vector2( 270.888, 98.0528 )
+scale = Vector2( 0.377654, 0.377654 )
+texture = ExtResource( 1 )
+offset = Vector2( -648.625, -176.658 )
+
+[node name="a" type="Sprite" parent="ding5"]
+modulate = Color( 1, 0.0980392, 0.952941, 1 )
+position = Vector2( 305.747, 98.0632 )
+scale = Vector2( 0.377654, 0.377654 )
+texture = ExtResource( 1 )
+offset = Vector2( -648.625, -176.658 )
+
+[node name="Area2D" type="Area2D" parent="ding5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ding5/Area2D"]
+shape = SubResource( 1 )
+
 [node name="ding3" type="Sprite" parent="."]
-position = Vector2( -671.336, 261.378 )
+position = Vector2( -276, 264 )
+scale = Vector2( 0.2, 1 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
@@ -273,7 +177,8 @@ offset = Vector2( -648.625, -176.658 )
 shape = SubResource( 1 )
 
 [node name="ding4" type="Sprite" parent="."]
-position = Vector2( -825.342, 261.378 )
+position = Vector2( -368, 261.378 )
+scale = Vector2( 0.2, 1 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
@@ -310,92 +215,27 @@ offset = Vector2( -648.625, -176.658 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ding4/Area2D"]
 shape = SubResource( 1 )
 
-[node name="p1" type="Sprite" parent="."]
-modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 130.65, 111.739 )
-texture = ExtResource( 1 )
-script = ExtResource( 3 )
-type = "r"
-input = "p1a"
+[node name="p1" parent="." instance=ExtResource( 7 )]
+position = Vector2( 350, 111.739 )
+types = [ "r", "g" ]
 
-[node name="Area2D2" type="KinematicBody2D" parent="p1"]
-position = Vector2( -0.113571, 1.58043 )
+[node name="p2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 550, 111.739 )
+types = [ "g", "b" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="p1/Area2D2"]
-shape = SubResource( 1 )
+[node name="p3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 750, 111.739 )
+types = [ "r", "a" ]
 
-[node name="s1" type="AudioStreamPlayer" parent="p1"]
-stream = ExtResource( 5 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="p1"]
-anims/hit = SubResource( 2 )
-
-[node name="p2" type="Sprite" parent="."]
-modulate = Color( 0.32549, 1, 0, 1 )
-position = Vector2( 285.408, 111.739 )
-texture = ExtResource( 1 )
-script = ExtResource( 3 )
-type = "g"
-input = "p2a"
-
-[node name="Area2D2" type="KinematicBody2D" parent="p2"]
-position = Vector2( -0.113571, 1.58043 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="p2/Area2D2"]
-shape = SubResource( 1 )
-
-[node name="s1" type="AudioStreamPlayer" parent="p2"]
-stream = ExtResource( 5 )
-pitch_scale = 3.08
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="p2"]
-anims/hit = SubResource( 3 )
-
-[node name="p3" type="Sprite" parent="."]
-modulate = Color( 0, 0.333333, 1, 1 )
-position = Vector2( 454.906, 111.739 )
-texture = ExtResource( 1 )
-script = ExtResource( 3 )
-input = "p3a"
-
-[node name="Area2D2" type="KinematicBody2D" parent="p3"]
-position = Vector2( -0.113571, 1.58043 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="p3/Area2D2"]
-shape = SubResource( 1 )
-
-[node name="s1" type="AudioStreamPlayer" parent="p3"]
-stream = ExtResource( 5 )
-pitch_scale = 7.86
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="p3"]
-anims/hit = SubResource( 4 )
-
-[node name="p4" type="Sprite" parent="."]
-modulate = Color( 1, 0.0980392, 0.952941, 1 )
-position = Vector2( 620.215, 111.739 )
-texture = ExtResource( 1 )
-script = ExtResource( 3 )
-type = "a"
-input = "p4a"
-
-[node name="Area2D2" type="KinematicBody2D" parent="p4"]
-position = Vector2( -0.113571, 1.58043 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="p4/Area2D2"]
-shape = SubResource( 1 )
-
-[node name="s1" type="AudioStreamPlayer" parent="p4"]
-stream = ExtResource( 5 )
-pitch_scale = 0.8
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="p4"]
-anims/hit = SubResource( 5 )
+[node name="p4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 950, 111.739 )
+types = [ "b", "a" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
 [connection signal="body_entered" from="ding/Area2D" to="ding" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="ding2/Area2D" to="ding2" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="ding5/Area2D" to="ding5" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="ding3/Area2D" to="ding3" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="ding4/Area2D" to="ding4" method="_on_Area2D_body_entered"]
