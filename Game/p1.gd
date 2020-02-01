@@ -39,10 +39,15 @@ func input_sound(soundId):
 	$p1/AnimationPlayer.play("hit")
 
 func play_sound(t):
+	if t != type:
+		print('wrong tool!')
+		return false
 	$s1.stream = sounds[t]
 	$s1.seek(0)
 	$s1.play()
-	pass
+	$p1/Area2D2/CollisionShape2D.disabled = true
+	type = ''
+	return true
 
 func update_names():
 	var id = int(name.substr(1,1)) - 1
