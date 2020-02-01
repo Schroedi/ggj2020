@@ -154,5 +154,3 @@ frames = SubResource( 4 )
 frames = SubResource( 5 )
 [connection signal="timeout" from="UpdateACInfo" to="." method="_on_UpdateACInfo_timeout"]
 [connection signal="timeout" from="AiDisableTimer" to="." method="_on_AiDisableTimer_timeout"]
-[connection signal="animation_finished" from="PigA" to="." method="_on_PigA_animation_finished"]
-[connection signal="animation_finished" from="PigB" to="." method="_on_PigB_animation_finished"]

@@ -2,7 +2,7 @@ extends Node2D
 
 export var types = ['r', 'b']
 export var audioType = [0, 0]
-var type = "b"
+var type = ""
 var soundId = 1
 
 
@@ -38,6 +38,9 @@ func _ready():
 	animA = $PigA
 	animB = $PigB
 	
+	animA.connect("animation_finished", self, "_on_animA_animation_finished")
+	animB.connect("animation_finished", self, "_on_animB_animation_finished")
+	
 	$s1.stream = sounds[types[0]][audioType[0]]
 	$s2.stream = sounds[types[1]][audioType[1]]
 	$UpdateACInfo.start()
@@ -65,14 +68,14 @@ func collide(t):
 	if isAi():
 		if not types.has(t):
 			print('wrong tool!')
-			return
+			return false
 		else:
 			# for AI set type, otherwise it's already set
 			type = t
 	
 	if t != type:
 		print('wrong tool!')
-		return
+		return false
 	
 	$s1.stream = sounds[t][audioType[soundId]]
 	$s1.seek(0)
@@ -81,6 +84,10 @@ func collide(t):
 	type = ''
 	if isAi():
 		$AiDisableTimer.start()
+		if types[0] == t:
+			animA.play()
+		else:
+			animB.play()
 		
 	return true
 
@@ -119,13 +126,13 @@ func _on_AiDisableTimer_timeout():
 	pass # Replace with function body.
 
 
-func _on_PigA_animation_finished():
-	$PigA.frame = 0
-	$PigA.stop()
+func _on_animA_animation_finished():
+	animA.frame = 0
+	animA.stop()
 	pass # Replace with function body.
 
 
-func _on_PigB_animation_finished():
-	$PigB.frame = 0
-	$PigB.stop()
+func _on_animB_animation_finished():
+	animB.frame = 0
+	animB.stop()
 	pass # Replace with function body.
