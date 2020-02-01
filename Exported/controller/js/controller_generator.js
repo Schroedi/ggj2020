@@ -295,6 +295,11 @@ ControllerGenerator.prototype.onMessage = function(event) {
     this.onUpdate(data);
   }
 };
+function setAnimalImage(id)
+{
+    var urlString = 'url(controller_' + id + '.png)';
+    document.getElementById("view-0").style.backgroundImage =  urlString;
+};
 
 ControllerGenerator.prototype.onAirConsoleMessage = function(device_id, data) {
   if (data.show_view_id) {
