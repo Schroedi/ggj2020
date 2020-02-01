@@ -30,10 +30,10 @@ func set_player_id(i):
 		$p1/Area2D2/CollisionShape2D.disabled = false
 
 func _ready():
-	$p1/r.visible = types.has('r')
-	$p1/g.visible = types.has('g')
-	$p1/b.visible = types.has('b')
-	$p1/a.visible = types.has('a')
+#	$p1/r.visible = types.has('r')
+#	$p1/g.visible = types.has('g')
+#	$p1/b.visible = types.has('b')
+#	$p1/a.visible = types.has('a')
 	
 	animA = $PigA
 	animB = $PigB

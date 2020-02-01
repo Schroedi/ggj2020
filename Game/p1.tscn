@@ -76,9 +76,7 @@ animations = [ {
 script = ExtResource( 3 )
 
 [node name="p1" type="Sprite" parent="."]
-self_modulate = Color( 0.223529, 1, 0.0784314, 1 )
-position = Vector2( 0, 111.739 )
-texture = ExtResource( 1 )
+texture = ExtResource( 5 )
 
 [node name="Area2D2" type="KinematicBody2D" parent="p1"]
 position = Vector2( 0, 136.009 )
@@ -90,6 +88,7 @@ shape = SubResource( 1 )
 anims/hit = SubResource( 2 )
 
 [node name="r" type="Sprite" parent="p1"]
+visible = false
 modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 203.772, 115.635 )
 scale = Vector2( 0.377654, 0.377654 )
@@ -97,6 +96,7 @@ texture = ExtResource( 1 )
 offset = Vector2( -648.625, -176.658 )
 
 [node name="g" type="Sprite" parent="p1"]
+visible = false
 modulate = Color( 0.32549, 1, 0, 1 )
 position = Vector2( 240.406, 116.013 )
 scale = Vector2( 0.377654, 0.377654 )
@@ -104,6 +104,7 @@ texture = ExtResource( 1 )
 offset = Vector2( -648.625, -176.658 )
 
 [node name="b" type="Sprite" parent="p1"]
+visible = false
 modulate = Color( 0, 0.333333, 1, 1 )
 position = Vector2( 275.907, 117.146 )
 scale = Vector2( 0.377654, 0.377654 )
@@ -111,6 +112,7 @@ texture = ExtResource( 1 )
 offset = Vector2( -648.625, -176.658 )
 
 [node name="a" type="Sprite" parent="p1"]
+visible = false
 modulate = Color( 1, 0.0980392, 0.952941, 1 )
 position = Vector2( 310.766, 117.156 )
 scale = Vector2( 0.377654, 0.377654 )
@@ -142,6 +144,7 @@ wait_time = 0.4
 one_shot = true
 
 [node name="Pig_Head" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 5 )
 
 [node name="PigA" type="AnimatedSprite" parent="."]
