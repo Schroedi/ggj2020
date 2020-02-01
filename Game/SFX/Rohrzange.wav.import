@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Rohrzange.wav-1f2357f390e18d8f74aab265ed48531f.sample"
+
+[deps]
+
+source_file="res://Game/SFX/Rohrzange.wav"
+dest_files=[ "res://.import/Rohrzange.wav-1f2357f390e18d8f74aab265ed48531f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0
