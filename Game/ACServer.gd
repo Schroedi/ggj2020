@@ -62,7 +62,7 @@ func _process(delta):
 	"""
 	var restart = JavaScript.eval(js, false)
 	if restart:
-		SceneManager.goto_scene("res://Game/GameScene.tscn")
+		Airconsole.restart()
 
 
 func updatePlayers():
@@ -120,3 +120,7 @@ func broadcast(msg:String):
 func sendMsg(devId:int, msg:String):
 	var js = "airconsole.message(%d, %s);" % [devId, msg]
 	JavaScript.eval(js, true)
+
+func restart():
+	Airconsole.started = false
+	SceneManager.goto_scene("res://Game/GameScene.tscn")
