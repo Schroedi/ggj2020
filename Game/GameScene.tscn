@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Game/GameScene.gd" type="Script" id=1]
 [ext_resource path="res://Game/MainScene.tscn" type="PackedScene" id=2]
@@ -9,12 +9,6 @@
 size = 62
 use_filter = true
 font_data = ExtResource( 3 )
-
-[sub_resource type="Environment" id=1]
-adjustment_enabled = true
-adjustment_brightness = 1.65
-adjustment_contrast = 1.86
-adjustment_saturation = 0.01
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -57,8 +51,5 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
 [connection signal="timeout" from="PollAirconsole" to="." method="_on_PollAirconsole_timeout"]
 [connection signal="timeout" from="GameStartTimer" to="." method="_on_GameStartTimer_timeout"]
