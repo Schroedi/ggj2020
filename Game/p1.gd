@@ -2,18 +2,21 @@ extends Node2D
 
 export var types = ['r', 'b']
 export var audioType = [0, 0]
-var type = "b"
+var type = ""
 var soundId = 1
 
 
-const sounds = {'r':[ preload("res://Game/SFX/Schraubschlussel.wav"), preload("res://Game/SFX/Rohrzange.wav") ],
-'g': [ preload("res://Game/SFX/Hammer_Bass.wav"), preload("res://Game/SFX/Hammer_Eisen.wav") ],
-'a': [ preload("res://Game/SFX/Sage.wav"), preload("res://Game/SFX/Axt.wav") ],
-'b': [ preload("res://Game/SFX/Spray.wav"), preload("res://Game/SFX/Pinsel.wav") ]}
+const sounds = {'g':[ preload("res://Game/SFX/Schraubschlussel.wav"), preload("res://Game/SFX/Rohrzange.wav") ],
+'r': [ preload("res://Game/SFX/Hammer_Bass.wav"), preload("res://Game/SFX/Hammer_Eisen.wav") ],
+'b': [ preload("res://Game/SFX/Sage.wav"), preload("res://Game/SFX/Axt.wav") ],
+'a': [ preload("res://Game/SFX/Spray.wav"), preload("res://Game/SFX/Pinsel.wav") ]}
 
 
 # id in airconsole player array
 var playerId = -2 setget set_player_id
+
+var animA:AnimatedSprite
+var animB:AnimatedSprite
 
 func isAi():
 	return playerId < 0
@@ -27,10 +30,16 @@ func set_player_id(i):
 		$p1/Area2D2/CollisionShape2D.disabled = false
 
 func _ready():
-	$p1/r.visible = types.has('r')
-	$p1/g.visible = types.has('g')
-	$p1/b.visible = types.has('b')
-	$p1/a.visible = types.has('a')
+#	$p1/r.visible = types.has('r')
+#	$p1/g.visible = types.has('g')
+#	$p1/b.visible = types.has('b')
+#	$p1/a.visible = types.has('a')
+	
+	animA = $PigA
+	animB = $PigB
+	
+	animA.connect("animation_finished", self, "_on_animA_animation_finished")
+	animB.connect("animation_finished", self, "_on_animB_animation_finished")
 	
 	$s1.stream = sounds[types[0]][audioType[0]]
 	$s2.stream = sounds[types[1]][audioType[1]]
@@ -50,19 +59,22 @@ func input_sound(sId):
 	type = types[sId-1]
 	soundId = sId-1
 	$p1/AnimationPlayer.play("hit")
+	if sId == 1:
+		animA.play()
+	else:
+		animB.play()
 
 func collide(t):
 	if isAi():
 		if not types.has(t):
-			print('wrong tool!')
-			return
+			return false
 		else:
 			# for AI set type, otherwise it's already set
-			type = t	
+			type = t
 	
 	if t != type:
 		print('wrong tool!')
-		return
+		return false
 	
 	$s1.stream = sounds[t][audioType[soundId]]
 	$s1.seek(0)
@@ -71,6 +83,11 @@ func collide(t):
 	type = ''
 	if isAi():
 		$AiDisableTimer.start()
+		if types[0] == t:
+			animA.play()
+		else:
+			animB.play()
+		
 	return true
 
 func update_names():
@@ -105,4 +122,16 @@ func _on_UpdateACInfo_timeout():
 
 func _on_AiDisableTimer_timeout():
 	$p1/Area2D2/CollisionShape2D.set_deferred('disabled', false)
+	pass # Replace with function body.
+
+
+func _on_animA_animation_finished():
+	animA.frame = 0
+	animA.stop()
+	pass # Replace with function body.
+
+
+func _on_animB_animation_finished():
+	animB.frame = 0
+	animB.stop()
 	pass # Replace with function body.

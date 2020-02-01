@@ -1,71 +1,62 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://ding.gd" type="Script" id=2]
+[ext_resource path="res://Game/GFX/Ding/Haus_a2.png" type="Texture" id=3]
+[ext_resource path="res://Game/GFX/Ding/Haus_r.png" type="Texture" id=4]
+[ext_resource path="res://Game/GFX/Ding/Haus_r2.png" type="Texture" id=5]
+[ext_resource path="res://Game/GFX/Ding/Haus_a.png" type="Texture" id=6]
+[ext_resource path="res://Game/GFX/Ding/Haus_b.png" type="Texture" id=7]
+[ext_resource path="res://Game/GFX/Ding/Haus_color.png" type="Texture" id=8]
+[ext_resource path="res://Game/GFX/Ding/Haus_top.png" type="Texture" id=9]
+[ext_resource path="res://Game/GFX/Ding/Haus_g.png" type="Texture" id=10]
+[ext_resource path="res://Game/GFX/Ding/Haus_b2.png" type="Texture" id=11]
+[ext_resource path="res://Game/GFX/Ding/Haus_g2.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5, 46.467 )
+extents = Vector2( 5, 56 )
 
 [node name="ding" type="Sprite"]
-position = Vector2( 0, 261.378 )
-texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
+[node name="Haus_color" type="Sprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 8 )
+
+[node name="Haus_top" type="Sprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 9 )
+
 [node name="r" type="Sprite" parent="."]
-modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 198.753, 96.5421 )
-scale = Vector2( 0.377654, 0.377654 )
-texture = ExtResource( 1 )
-offset = Vector2( -648.625, -176.658 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 4 )
 
 [node name="g" type="Sprite" parent="."]
-modulate = Color( 0.32549, 1, 0, 1 )
-position = Vector2( 235.387, 96.9198 )
-scale = Vector2( 0.377654, 0.377654 )
-texture = ExtResource( 1 )
-offset = Vector2( -648.625, -176.658 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 10 )
 
 [node name="b" type="Sprite" parent="."]
-modulate = Color( 0, 0.333333, 1, 1 )
-position = Vector2( 270.888, 98.0528 )
-scale = Vector2( 0.377654, 0.377654 )
-texture = ExtResource( 1 )
-offset = Vector2( -648.625, -176.658 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 7 )
 
 [node name="a" type="Sprite" parent="."]
-modulate = Color( 1, 0.0980392, 0.952941, 1 )
-position = Vector2( 305.747, 98.0632 )
-scale = Vector2( 0.377654, 0.377654 )
-texture = ExtResource( 1 )
-offset = Vector2( -648.625, -176.658 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 6 )
 
 [node name="r2" type="Sprite" parent="."]
-modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 215.083, 103.465 )
-scale = Vector2( 0.377654, 0.377654 )
-texture = ExtResource( 1 )
-offset = Vector2( -648.625, -176.658 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
 
 [node name="g2" type="Sprite" parent="."]
-modulate = Color( 0.32549, 1, 0, 1 )
-position = Vector2( 251.717, 103.843 )
-scale = Vector2( 0.377654, 0.377654 )
-texture = ExtResource( 1 )
-offset = Vector2( -648.625, -176.658 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 12 )
 
 [node name="b2" type="Sprite" parent="."]
-modulate = Color( 0, 0.333333, 1, 1 )
-position = Vector2( 287.218, 104.976 )
-scale = Vector2( 0.377654, 0.377654 )
-texture = ExtResource( 1 )
-offset = Vector2( -648.625, -176.658 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 11 )
 
 [node name="a2" type="Sprite" parent="."]
-modulate = Color( 1, 0.0980392, 0.952941, 1 )
-position = Vector2( 322.077, 104.986 )
-scale = Vector2( 0.377654, 0.377654 )
-texture = ExtResource( 1 )
-offset = Vector2( -648.625, -176.658 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
