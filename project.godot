@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="AirConsoleSample"
-run/main_scene="res://Game/MainScene.tscn"
+run/main_scene="res://Game/GameScene.tscn"
 config/icon="res://icon.png"
 
 [autoload]

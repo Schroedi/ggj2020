@@ -9,8 +9,9 @@ const sounds = {'r': preload("res://Game/SFX/BrooklynBD.wav"),
 'a': preload("res://Game/SFX/BrooklynHH.wav"),
 'b': preload("res://Game/SFX/BrooklynSound 1.wav")}
 
-# 1 or 2
-var sound = 0
+
+# id in airconsole player array
+var playerId = -1
 
 func _ready():
 	$p1/r.visible = types.has('r')
@@ -20,28 +21,51 @@ func _ready():
 	
 	$s1.stream = sounds[types[0]]
 	$s2.stream = sounds[types[1]]
+	$UpdateACInfo.start()
 
 func _input(event:InputEvent):
 	if $p1/AnimationPlayer.is_playing():
 		return
 	
 	if event.is_action_pressed(name + "a"):
-		sound = 1
-		$s1.play()
-		type = types[0]
-		$p1/AnimationPlayer.play("hit")
+		input_sound(1)
 	if event.is_action_pressed(name + "b"):
-		sound = 2
-		$s2.play()
-		type = types[1]
-		$p1/AnimationPlayer.play("hit")
+		input_sound(2)
+
+func input_sound(soundId):
+	# sound id is 1 or 2
+	get_node("s"+str(soundId)).play()
+	type = types[soundId-1]
+	$p1/AnimationPlayer.play("hit")
 
 func play_sound(t):
 	$s1.stream = sounds[t]
 	$s1.seek(0)
 	$s1.play()
-#	if sound == 1:
-#		$s1.play()
-#	if sound == 2:
-#		$s2.play()
 	pass
+
+func update_names():
+	var id = int(name.substr(1,1)) - 1
+	if Airconsole.inst.players.size() > id:
+		$Name.text = Airconsole.inst.players[id]['name']
+
+func _process(delta):
+	# update input
+	if OS.has_feature('JavaScript') and not Airconsole.inst.offlineDebug:
+		airconsoleInput()
+
+func airconsoleInput():
+	var controller_id = str(Airconsole.inst.players[playerId]['devId'])
+	#print(str(Airconsole.inst.players) + str(Airconsole.inst.inputs))
+	if Airconsole.inst.inputs.has(controller_id):
+		var sound = int(Airconsole.inst.inputs[controller_id])
+		#Airconsole.inst.inputs[controller_id] = 0
+		print(name  + ': sound' + str(sound))
+		input_sound(sound)
+
+
+func _on_UpdateACInfo_timeout():
+	if not Airconsole.inst:
+		return
+	update_names()
+	pass # Replace with function body.
