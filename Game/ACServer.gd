@@ -27,8 +27,8 @@ func _ready():
 	airconsole.onMessage = function(device_id, data) {
 		  if (data.data.input !== undefined) {
 			PlayerInputs[device_id] = data.data.input;
-			console.log('got message');
-			console.log(data.data);
+			//console.log('got message');
+			//console.log(data.data);
 		  }
 		  if (data.restart !== undefined) {
 			restart = true;
@@ -36,7 +36,6 @@ func _ready():
 		};
 	airconsole.onCustomDeviceStateChange = function(device_id, state) {
 		console.log('statechange: ' + state);
-		
 	};
 	""", true) # we need the global context here to access AirConsole()
 
@@ -75,6 +74,7 @@ func updatePlayers():
 		//console.log(devState);
 		var ismaster = masterId == d;
 		players.push({devId: d, name: pname, master: ismaster, devstate: devState});
+		airconsole.message(d, {animal:players.length});
 	});
 	//console.log(JSON.stringify(players));
 	// return
