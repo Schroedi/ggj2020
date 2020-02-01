@@ -7,11 +7,6 @@
 .button-text {
   width: 100%;
   font-size: 4vw;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
 }
 
 .button-80 {
