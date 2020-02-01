@@ -6,10 +6,10 @@ var type = "b"
 var soundId = 1
 
 
-const sounds = {'r':[ preload("res://Game/SFX/Schraubschlussel.wav"), preload("res://Game/SFX/Rohrzange.wav") ],
-'g': [ preload("res://Game/SFX/Hammer_Bass.wav"), preload("res://Game/SFX/Hammer_Eisen.wav") ],
-'a': [ preload("res://Game/SFX/Sage.wav"), preload("res://Game/SFX/Axt.wav") ],
-'b': [ preload("res://Game/SFX/Spray.wav"), preload("res://Game/SFX/Pinsel.wav") ]}
+const sounds = {'g':[ preload("res://Game/SFX/Schraubschlussel.wav"), preload("res://Game/SFX/Rohrzange.wav") ],
+'r': [ preload("res://Game/SFX/Hammer_Bass.wav"), preload("res://Game/SFX/Hammer_Eisen.wav") ],
+'b': [ preload("res://Game/SFX/Sage.wav"), preload("res://Game/SFX/Axt.wav") ],
+'a': [ preload("res://Game/SFX/Spray.wav"), preload("res://Game/SFX/Pinsel.wav") ]}
 
 
 # id in airconsole player array
