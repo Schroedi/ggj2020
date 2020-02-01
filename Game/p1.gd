@@ -45,7 +45,7 @@ func play_sound(t):
 	$s1.stream = sounds[t]
 	$s1.seek(0)
 	$s1.play()
-	$p1/Area2D2/CollisionShape2D.disabled = true
+	$p1/Area2D2/CollisionShape2D.set_deferred('disabled', true)
 	type = ''
 	return true
 
