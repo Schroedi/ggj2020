@@ -33,7 +33,10 @@ func _ready():
 	var restart = false;
 
 	airconsole.onMessage = function(device_id, data) {
-		  if (data.data.input !== undefined) {
+		if (data.data === undefined) {
+			return;
+		}
+		if (data.data.input !== undefined) {
 			PlayerInputs[device_id] = data.data.input;
 			//console.log('got message');
 			//console.log(data.data);

@@ -298,7 +298,8 @@ ControllerGenerator.prototype.onMessage = function(event) {
 function setAnimalImage(id)
 {
     var urlString = 'url(controller_' + id + '.png)';
-    document.getElementById("view-0").style.backgroundImage =  urlString;
+    document.getElementById("view-0").style.backgroundImage = urlString;
+    console.log(document.getElementById("view-0").style.backgroundImage);
 };
 
 ControllerGenerator.prototype.onAirConsoleMessage = function(device_id, data) {

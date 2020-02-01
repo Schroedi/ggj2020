@@ -58,7 +58,6 @@ func updatePlayerList():
 		v.pname = p['name']
 		#v.pcolor = Color(p['devstate']['color'])		 
 		v.pready = players[i].isReady
-		print ("p ready:"+str(i)+" "+str(v.pready))
 		allready = allready and v.pready
 		
 		#players[i].color = v.color
