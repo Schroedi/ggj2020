@@ -1,31 +1,39 @@
-extends Sprite
+extends Node2D
 
 export var types = ['r', 'b']
 var type = "b"
+
+const sounds = {'r': preload("res://Game/SFX/BrooklynBD.wav"),
+'g': preload("res://Game/SFX/BrooklynBell.wav"),
+'a': preload("res://Game/SFX/BrooklynHH.wav"),
+'b': preload("res://Game/SFX/BrooklynSound 1.wav")}
 
 # 1 or 2
 var sound = 0
 
 func _ready():
-	$r.visible = types.has('r')
-	$g.visible = types.has('g')
-	$b.visible = types.has('b')
-	$a.visible = types.has('a')
+	$p1/r.visible = types.has('r')
+	$p1/g.visible = types.has('g')
+	$p1/b.visible = types.has('b')
+	$p1/a.visible = types.has('a')
+	
+	$s1.stream = sounds[types[0]]
+	$s2.stream = sounds[types[1]]
 
 func _input(event:InputEvent):
-	if $AnimationPlayer.is_playing():
+	if $p1/AnimationPlayer.is_playing():
 		return
 	
 	if event.is_action_pressed(name + "a"):
 		sound = 1
 		$s1.play()
 		type = types[0]
-		$AnimationPlayer.play("hit")
+		$p1/AnimationPlayer.play("hit")
 	if event.is_action_pressed(name + "b"):
 		sound = 2
 		$s2.play()
 		type = types[1]
-		$AnimationPlayer.play("hit")
+		$p1/AnimationPlayer.play("hit")
 
 func play_sound():
 #	if sound == 1:

@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://ding.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 52.3696, 46.4671 )
+
+[node name="ding" type="Sprite"]
+position = Vector2( 0, 261.378 )
+scale = Vector2( 0.2, 1 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="r" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 198.753, 96.5421 )
+scale = Vector2( 0.377654, 0.377654 )
+texture = ExtResource( 1 )
+offset = Vector2( -648.625, -176.658 )
+
+[node name="g" type="Sprite" parent="."]
+modulate = Color( 0.32549, 1, 0, 1 )
+position = Vector2( 235.387, 96.9198 )
+scale = Vector2( 0.377654, 0.377654 )
+texture = ExtResource( 1 )
+offset = Vector2( -648.625, -176.658 )
+
+[node name="b" type="Sprite" parent="."]
+modulate = Color( 0, 0.333333, 1, 1 )
+position = Vector2( 270.888, 98.0528 )
+scale = Vector2( 0.377654, 0.377654 )
+texture = ExtResource( 1 )
+offset = Vector2( -648.625, -176.658 )
+
+[node name="a" type="Sprite" parent="."]
+modulate = Color( 1, 0.0980392, 0.952941, 1 )
+position = Vector2( 305.747, 98.0632 )
+scale = Vector2( 0.377654, 0.377654 )
+texture = ExtResource( 1 )
+offset = Vector2( -648.625, -176.658 )
+
+[node name="r2" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 215.083, 103.465 )
+scale = Vector2( 0.377654, 0.377654 )
+texture = ExtResource( 1 )
+offset = Vector2( -648.625, -176.658 )
+
+[node name="g2" type="Sprite" parent="."]
+modulate = Color( 0.32549, 1, 0, 1 )
+position = Vector2( 251.717, 103.843 )
+scale = Vector2( 0.377654, 0.377654 )
+texture = ExtResource( 1 )
+offset = Vector2( -648.625, -176.658 )
+
+[node name="b2" type="Sprite" parent="."]
+modulate = Color( 0, 0.333333, 1, 1 )
+position = Vector2( 287.218, 104.976 )
+scale = Vector2( 0.377654, 0.377654 )
+texture = ExtResource( 1 )
+offset = Vector2( -648.625, -176.658 )
+
+[node name="a2" type="Sprite" parent="."]
+modulate = Color( 1, 0.0980392, 0.952941, 1 )
+position = Vector2( 322.077, 104.986 )
+scale = Vector2( 0.377654, 0.377654 )
+texture = ExtResource( 1 )
+offset = Vector2( -648.625, -176.658 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

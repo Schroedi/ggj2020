@@ -57,52 +57,54 @@ tracks/3/keys = {
 "values": [ false, true, false ]
 }
 
-[node name="p1" type="Sprite"]
+[node name="p1_root" type="Node2D"]
+position = Vector2( 0, 111.739 )
+script = ExtResource( 3 )
+
+[node name="p1" type="Sprite" parent="."]
 self_modulate = Color( 0.223529, 1, 0.0784314, 1 )
-position = Vector2( 0, 121.79 )
+position = Vector2( 0, 111.739 )
 scale = Vector2( 0.4, 1 )
 texture = ExtResource( 1 )
-script = ExtResource( 3 )
-types = [ "g", "a" ]
 
-[node name="Area2D2" type="KinematicBody2D" parent="."]
+[node name="Area2D2" type="KinematicBody2D" parent="p1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="p1/Area2D2"]
 shape = SubResource( 1 )
 
-[node name="s1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
-
-[node name="s2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="p1"]
 anims/hit = SubResource( 2 )
 
-[node name="r" type="Sprite" parent="."]
+[node name="r" type="Sprite" parent="p1"]
 modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 203.772, 115.635 )
 scale = Vector2( 0.377654, 0.377654 )
 texture = ExtResource( 1 )
 offset = Vector2( -648.625, -176.658 )
 
-[node name="g" type="Sprite" parent="."]
+[node name="g" type="Sprite" parent="p1"]
 modulate = Color( 0.32549, 1, 0, 1 )
 position = Vector2( 240.406, 116.013 )
 scale = Vector2( 0.377654, 0.377654 )
 texture = ExtResource( 1 )
 offset = Vector2( -648.625, -176.658 )
 
-[node name="b" type="Sprite" parent="."]
+[node name="b" type="Sprite" parent="p1"]
 modulate = Color( 0, 0.333333, 1, 1 )
 position = Vector2( 275.907, 117.146 )
 scale = Vector2( 0.377654, 0.377654 )
 texture = ExtResource( 1 )
 offset = Vector2( -648.625, -176.658 )
 
-[node name="a" type="Sprite" parent="."]
+[node name="a" type="Sprite" parent="p1"]
 modulate = Color( 1, 0.0980392, 0.952941, 1 )
 position = Vector2( 310.766, 117.156 )
 scale = Vector2( 0.377654, 0.377654 )
 texture = ExtResource( 1 )
 offset = Vector2( -648.625, -176.658 )
+
+[node name="s1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="s2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )

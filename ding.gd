@@ -1,29 +1,30 @@
 extends Sprite
 
+export var types = ['r', 'b', 'g2', 'a2']
 
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$r.visible = types.has('r')
+	$g.visible = types.has('g')
+	$b.visible = types.has('b')
+	$a.visible = types.has('a')
+	$r2.visible = types.has('r2')
+	$g2.visible = types.has('g2')
+	$b2.visible = types.has('b2')
+	$a2.visible = types.has('a2')
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _physics_process(delta):
 	position.x += 200 * delta
 	
-	position.x = fmod(position.x, 1024)
+	#position.x = fmod(position.x, 1024)
 
+func remove_part(p:String):
+	if get_node(p+'2').visible:
+		get_node(p+'2').visible = false
+		return
+	if get_node(p).visible:
+		get_node(p).visible = false
+		return
 
 func _on_Area2D_body_entered(body):
-	if body.get_parent().type == 'r':
-		$r.visible = false
-	if body.get_parent().type == 'g':
-		$g.visible = false
-	if body.get_parent().type == 'b':
-		$b.visible = false
-	if body.get_parent().type == 'a':
-		$a.visible = false
+	remove_part(body.get_parent().get_parent().type)
