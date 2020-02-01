@@ -15,6 +15,9 @@ const sounds = {'r':[ preload("res://Game/SFX/Schraubschlussel.wav"), preload("r
 # id in airconsole player array
 var playerId = -2 setget set_player_id
 
+var animA:AnimatedSprite
+var animB:AnimatedSprite
+
 func isAi():
 	return playerId < 0
 
@@ -31,6 +34,9 @@ func _ready():
 	$p1/g.visible = types.has('g')
 	$p1/b.visible = types.has('b')
 	$p1/a.visible = types.has('a')
+	
+	animA = $PigA
+	animB = $PigB
 	
 	$s1.stream = sounds[types[0]][audioType[0]]
 	$s2.stream = sounds[types[1]][audioType[1]]
@@ -50,6 +56,10 @@ func input_sound(sId):
 	type = types[sId-1]
 	soundId = sId-1
 	$p1/AnimationPlayer.play("hit")
+	if sId == 1:
+		animA.play()
+	else:
+		animB.play()
 
 func collide(t):
 	if isAi():
@@ -58,7 +68,7 @@ func collide(t):
 			return
 		else:
 			# for AI set type, otherwise it's already set
-			type = t	
+			type = t
 	
 	if t != type:
 		print('wrong tool!')
@@ -71,6 +81,7 @@ func collide(t):
 	type = ''
 	if isAi():
 		$AiDisableTimer.start()
+		
 	return true
 
 func update_names():
@@ -105,4 +116,16 @@ func _on_UpdateACInfo_timeout():
 
 func _on_AiDisableTimer_timeout():
 	$p1/Area2D2/CollisionShape2D.set_deferred('disabled', false)
+	pass # Replace with function body.
+
+
+func _on_PigA_animation_finished():
+	$PigA.frame = 0
+	$PigA.stop()
+	pass # Replace with function body.
+
+
+func _on_PigB_animation_finished():
+	$PigB.frame = 0
+	$PigB.stop()
 	pass # Replace with function body.
