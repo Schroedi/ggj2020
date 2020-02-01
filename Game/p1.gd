@@ -34,7 +34,7 @@ func _input(event:InputEvent):
 
 func input_sound(soundId):
 	# sound id is 1 or 2
-	get_node("s"+str(soundId)).play()
+	#get_node("s"+str(soundId)).play()
 	type = types[soundId-1]
 	$p1/AnimationPlayer.play("hit")
 
