@@ -1,4 +1,4 @@
-GODOT=""
+GODOT="/Applications/Godot.app/Contents/MacOS/Godot"
 USERNAME := $(shell echo $$USERNAME)
 UsNAME:= Rico
 ifeq ($(USERNAME),$(UsNAME))
