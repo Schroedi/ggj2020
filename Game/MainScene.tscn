@@ -36,14 +36,17 @@ types = [ "r", "g" ]
 [node name="p2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 864, 488 )
 types = [ "b", "g" ]
+audioType = [ 0, 1 ]
 
 [node name="p3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1152, 488 )
 types = [ "r", "a" ]
+audioType = [ 0, 1 ]
 
 [node name="p4" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1440, 480 )
 types = [ "b", "a" ]
+audioType = [ 1, 1 ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
