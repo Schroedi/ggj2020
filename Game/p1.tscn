@@ -6,7 +6,7 @@
 [ext_resource path="res://Game/Fonts/NotoSans-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 52.3696, 46.4671 )
+extents = Vector2( 52.3696, 201.096 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "hit"
@@ -50,12 +50,12 @@ tracks/3/path = NodePath("Area2D2/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
-tracks/3/enabled = false
+tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 0, 0.1, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false ]
+"values": [ false, true, true ]
 }
 
 [sub_resource type="DynamicFont" id=3]

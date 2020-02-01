@@ -30,19 +30,19 @@ position = Vector2( -644, 768.836 )
 types = [ "r", "r2", "b", "b2" ]
 
 [node name="p1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 644, 720 )
+position = Vector2( 644, 480 )
 types = [ "r", "g" ]
 
 [node name="p2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 828, 720 )
+position = Vector2( 828, 480 )
 types = [ "b", "g" ]
 
 [node name="p3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1012, 720 )
+position = Vector2( 1012, 480 )
 types = [ "r", "a" ]
 
 [node name="p4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1196, 720 )
+position = Vector2( 1196, 480 )
 types = [ "b", "a" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
