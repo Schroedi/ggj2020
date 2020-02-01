@@ -20,6 +20,13 @@ var inputs = {}
 # {'devId':  0, 'name': 'p1', 'master': true,  'devstate': {'color':'#ff0000', 'isready':true}}
 var players = []
 
+var score = 0 setget setScore
+
+signal newScore
+
+func setScore(s):
+	score = s
+	emit_signal("newScore", score)
 
 func _ready():
 	inst = self
@@ -124,3 +131,5 @@ func sendMsg(devId:int, msg:String):
 func restart():
 	Airconsole.started = false
 	SceneManager.goto_scene("res://Game/GameScene.tscn")
+	score = 0
+

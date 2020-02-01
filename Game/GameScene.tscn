@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game/GameScene.gd" type="Script" id=1]
 [ext_resource path="res://Game/MainScene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Fonts/NotoSans-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Game/Score.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 62
+use_filter = true
+font_data = ExtResource( 3 )
 
 [sub_resource type="Environment" id=1]
 adjustment_enabled = true
@@ -33,6 +40,20 @@ __meta__ = {
 margin_right = 220.0
 margin_bottom = 122.0
 custom_constants/separation = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+margin_left = 960.0
+margin_top = 191.557
+margin_right = 995.123
+margin_bottom = 277.557
+grow_horizontal = 2
+custom_fonts/font = SubResource( 2 )
+text = "0"
+align = 1
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

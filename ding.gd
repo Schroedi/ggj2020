@@ -34,10 +34,11 @@ func _on_Area2D_body_entered(body):
 		if t.ends_with('2'):
 			t = t.substr(0, 1)
 		if body.get_parent().get_parent().collide(t):
-			rem_t = t
+			rem_t = t_orig
 			remove_part(t)
 			break
 	if rem_t != '':
 		types.erase(rem_t)
+		Airconsole.score += 10
 	
 	
