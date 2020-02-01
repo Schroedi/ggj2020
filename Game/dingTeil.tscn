@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Game/ding.tscn" type="PackedScene" id=1]
+
+[node name="dingTeil" type="Node"]
+
+[node name="ding" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 760 )
+types = [ "r", "r2", "b", "b2" ]
+
+[node name="ding2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -432, 768 )
+types = [ "a", "a2" ]
+
+[node name="ding3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1008, 772.077 )
+types = [ "a", "a2" ]
+
+[node name="ding5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1152, 778.622 )
+types = [ "r", "r2", "b", "b2" ]
