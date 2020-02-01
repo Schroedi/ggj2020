@@ -14,6 +14,7 @@ func _ready():
 	if not Airconsole.inst:
 		Airconsole.inst = load("res://Game/ACServer.gd").new()
 		Airconsole.add_child(Airconsole.inst)
+	
 	$PollAirconsole.start()
 	players.append($MainScene/p1)
 	players.append($MainScene/p2)
@@ -59,6 +60,10 @@ func updatePlayerList():
 		
 		#players[i].color = v.color
 		players[i].playerId = i
+	
+	# set every non player as AI
+	for i in range(len(Airconsole.inst.players), 4):
+		players[i].playerId = -1
 	
 	# all ready?
 	if allready and $GameStartTimer.is_stopped():

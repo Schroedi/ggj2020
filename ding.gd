@@ -14,7 +14,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	position.x += 200 * delta
+	position.x += 300 * delta
 	
 	#position.x = fmod(position.x, 1920)
 
@@ -32,7 +32,7 @@ func _on_Area2D_body_entered(body):
 		var t_orig = t
 		if t.ends_with('2'):
 			t = t.substr(0, 1)
-		if body.get_parent().get_parent().play_sound(t):
+		if body.get_parent().get_parent().collide(t):
 			rem_t = t
 			remove_part(t)
 			break

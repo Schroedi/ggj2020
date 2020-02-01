@@ -57,6 +57,7 @@ func updatePlayers():
 	if not OS.has_feature('JavaScript') or offlineDebug:
 		players = [{'devId':  0, 'name': 'p1', 'master': true,  'devstate': {'color':'#ff0000', 'isready':true}},
 				   {'devId': -2, 'name': 'p2', 'master': false, 'devstate': {'color':'#00ff00', 'isready':true}}]
+		#players = []
 		return
 	
 	var js = """

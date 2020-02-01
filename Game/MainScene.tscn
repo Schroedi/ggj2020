@@ -14,35 +14,35 @@ position = Vector2( 960, 540 )
 texture = ExtResource( 2 )
 
 [node name="ding" parent="." instance=ExtResource( 1 )]
-position = Vector2( 92, 768.836 )
+position = Vector2( 0, 760 )
 types = [ "r", "r2", "b", "b2" ]
 
 [node name="ding2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -184, 768.836 )
+position = Vector2( -432, 768 )
 types = [ "a", "a2" ]
 
 [node name="ding3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -552, 768.836 )
+position = Vector2( -1008, 772.077 )
 types = [ "a", "a2" ]
 
 [node name="ding5" parent="." instance=ExtResource( 1 )]
-position = Vector2( -644, 768.836 )
+position = Vector2( -1152, 778.622 )
 types = [ "r", "r2", "b", "b2" ]
 
 [node name="p1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 644, 480 )
+position = Vector2( 588.824, 504 )
 types = [ "r", "g" ]
 
 [node name="p2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 828, 480 )
+position = Vector2( 864, 488 )
 types = [ "b", "g" ]
 
 [node name="p3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1012, 480 )
+position = Vector2( 1152, 488 )
 types = [ "r", "a" ]
 
 [node name="p4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1196, 480 )
+position = Vector2( 1440, 480 )
 types = [ "b", "a" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

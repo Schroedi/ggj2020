@@ -11,7 +11,18 @@ const sounds = {'r': preload("res://Game/SFX/BrooklynBD.wav"),
 
 
 # id in airconsole player array
-var playerId = -1
+var playerId = -2 setget set_player_id
+
+func isAi():
+	return playerId < 0
+
+func set_player_id(i):
+	if i == playerId:
+		return
+	playerId = i
+	if isAi():
+		# AI
+		$p1/Area2D2/CollisionShape2D.disabled = false
 
 func _ready():
 	$p1/r.visible = types.has('r')
@@ -24,35 +35,46 @@ func _ready():
 	$UpdateACInfo.start()
 
 func _input(event:InputEvent):
-	if $p1/AnimationPlayer.is_playing():
-		return
-	
 	if event.is_action_pressed(name + "a"):
 		input_sound(1)
 	if event.is_action_pressed(name + "b"):
 		input_sound(2)
 
 func input_sound(soundId):
+	if $p1/AnimationPlayer.is_playing():
+		return
 	# sound id is 1 or 2
 	#get_node("s"+str(soundId)).play()
 	type = types[soundId-1]
 	$p1/AnimationPlayer.play("hit")
 
-func play_sound(t):
+func collide(t):
+	if isAi():
+		if not types.has(t):
+			print('wrong tool!')
+			return
+		else:
+			# for AI set type, otherwise it's already set
+			type = t	
+	
 	if t != type:
 		print('wrong tool!')
-		return false
+		return
+	
 	$s1.stream = sounds[t]
 	$s1.seek(0)
 	$s1.play()
 	$p1/Area2D2/CollisionShape2D.set_deferred('disabled', true)
 	type = ''
+	if isAi():
+		$AiDisableTimer.start()
 	return true
 
 func update_names():
 	var id = int(name.substr(1,1)) - 1
 	if Airconsole.inst.players.size() > id:
-		$Name.text = Airconsole.inst.players[id]['name']
+#		$Name.text = Airconsole.inst.players[id]['name']
+		$Name.text = str(playerId)
 
 func _process(delta):
 	# update input
@@ -73,4 +95,9 @@ func _on_UpdateACInfo_timeout():
 	if not Airconsole.inst:
 		return
 	update_names()
+	pass # Replace with function body.
+
+
+func _on_AiDisableTimer_timeout():
+	$p1/Area2D2/CollisionShape2D.set_deferred('disabled', false)
 	pass # Replace with function body.

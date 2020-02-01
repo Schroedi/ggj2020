@@ -31,27 +31,13 @@ tracks/1/keys = {
 "points": PoolRealArray( 111.739, -0.25, 0, 0.25, 0, 244.389, -0.25, 0, 0.25, 0, 111.739, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.1, 0.4 )
 }
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
+tracks/2/type = "value"
+tracks/2/path = NodePath("Area2D2/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = false
+tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.08 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "play_sound"
-} ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Area2D2/CollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
@@ -128,4 +114,9 @@ __meta__ = {
 
 [node name="UpdateACInfo" type="Timer" parent="."]
 wait_time = 0.3
+
+[node name="AiDisableTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
 [connection signal="timeout" from="UpdateACInfo" to="." method="_on_UpdateACInfo_timeout"]
+[connection signal="timeout" from="AiDisableTimer" to="." method="_on_AiDisableTimer_timeout"]
