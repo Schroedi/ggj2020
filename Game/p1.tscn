@@ -190,9 +190,11 @@ offset = Vector2( -648.625, -176.658 )
 
 [node name="s1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+bus = "Effects"
 
 [node name="s2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+bus = "Effects"
 
 [node name="Name" type="Label" parent="."]
 margin_left = -89.6184

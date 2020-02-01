@@ -80,7 +80,7 @@ func input_sound(sId):
 	if $p1/AnimationPlayer.is_playing():
 		return
 	# sound id is 1 or 2
-	#get_node("s"+str(soundId)).play()
+	get_node("s"+str(sId)).play()
 	type = types[sId-1]
 	soundId = sId-1
 	$p1/AnimationPlayer.play("hit")
@@ -101,9 +101,13 @@ func collide(t):
 		print('wrong tool!')
 		return false
 	
-	$s1.stream = sounds[t][audioType[soundId]]
-	$s1.seek(0)
-	$s1.play()
+	if types[0] == t:
+		$s1.seek(0)
+		$s1.play()
+	else:
+		$s2.seek(0)
+		$s2.play()
+	
 	$p1/Area2D2/CollisionShape2D.set_deferred('disabled', true)
 	type = ''
 	if isAi():

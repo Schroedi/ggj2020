@@ -72,7 +72,7 @@ func updatePlayerList():
 		players[i].playerId = -1
 	
 	# all ready?
-	if allready and $GameStartTimer.is_stopped():
+	if not Airconsole.started and allready and $GameStartTimer.is_stopped():
 		$GameStartTimer.start()
 	
 	# did somebody cancel?
@@ -84,3 +84,4 @@ func updatePlayerList():
 
 func _on_GameStartTimer_timeout():
 	Airconsole.started =true
+	$MainScene/AudioStreamPlayer.play()

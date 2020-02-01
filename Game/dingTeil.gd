@@ -11,6 +11,11 @@ var spawnDings = [[0,['r','r2','b','b2']] ,
 var dingScene = preload("res://Game/ding.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	spawnDings = []
+#	for i in range(100):
+#		spawnDings.append([i*1, ['a', 'a2', 'r', 'r2', 'g', 'g2', 'b', 'b2']])
+	
+	
 	for ding in spawnDings:
 		var newDing = dingScene.instance()
 		newDing.types = ding[1]
