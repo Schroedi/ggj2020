@@ -10,10 +10,12 @@ var players = []
 
 
 func _ready():
+	print('GameScene ready')
 	# Only instance the server once. This scene could change, therefore the check.
 	if not Airconsole.inst:
 		Airconsole.inst = load("res://Game/ACServer.gd").new()
 		Airconsole.add_child(Airconsole.inst)
+		print('AC addad')
 	
 	$PollAirconsole.start()
 	players.append($MainScene/p1)

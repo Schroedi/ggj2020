@@ -1,6 +1,15 @@
 extends Node
 class_name ACServer
 
+# inst will hold a reference to the AirConsole client or server.
+# This works around the way the problem that we can not specify the Autoload
+# type to be two different types in one project.
+var inst = null
+
+# Run in browser without AriConsole? Set this to true for offline debugging and
+# profiling in the browser. Running without a browser is supported by defualt.
+var offlineDebug = false
+
 # Input dict with an entry for each player. See updateInputs.
 var inputs = {}
 
@@ -9,11 +18,10 @@ var inputs = {}
 # {'devId':  0, 'name': 'p1', 'master': true,  'devstate': {'color':'#ff0000', 'isready':true}}
 var players = []
 
-# Run in browser without AriConsole? Set this to true for offline debugging and
-# profiling in the browser. Running without a browser is supported by defualt.
-var offlineDebug = false
 
 func _ready():
+	inst = self
+	print('Feature Debug:'+ str(OS.has_feature('JavaScript')) )
 	# init AC: register state and AC callbacks on js side
 	JavaScript.eval("""
 	var airconsole = new AirConsole();
@@ -30,7 +38,7 @@ func _ready():
 			//console.log('got message');
 			//console.log(data.data);
 		  }
-		  if (data.restart !== undefined) {
+		  if (data.data.restart !== undefined) {
 			restart = true;
 		  }
 		};
@@ -49,11 +57,12 @@ func _process(delta):
 	"""
 	var restart = JavaScript.eval(js, false)
 	if restart:
-		get_tree().change_scene("res://UI/MainMenu/MainMenu.tscn")
+		SceneManager.goto_scene("res://Game/GameScene.tscn")
 
 
 func updatePlayers():
 	# for testing, we return some default players
+	
 	if not OS.has_feature('JavaScript') or offlineDebug:
 		players = [{'devId':  0, 'name': 'p1', 'master': true,  'devstate': {'color':'#ff0000', 'isready':true}},
 				   {'devId': -2, 'name': 'p2', 'master': false, 'devstate': {'color':'#00ff00', 'isready':true}}]

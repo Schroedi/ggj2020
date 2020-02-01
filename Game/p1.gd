@@ -82,6 +82,8 @@ func _process(delta):
 		airconsoleInput()
 
 func airconsoleInput():
+	if playerId < 0:
+		return
 	var controller_id = str(Airconsole.inst.players[playerId]['devId'])
 	#print(str(Airconsole.inst.players) + str(Airconsole.inst.inputs))
 	if Airconsole.inst.inputs.has(controller_id):
