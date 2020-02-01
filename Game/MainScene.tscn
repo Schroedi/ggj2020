@@ -9,37 +9,36 @@
 script = ExtResource( 4 )
 
 [node name="ding" parent="." instance=ExtResource( 1 )]
-position = Vector2( 561.6, 330 )
+position = Vector2( 552, 272 )
 types = [ "r", "r2", "b", "b2" ]
 
 [node name="ding2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 285.6, 330 )
+position = Vector2( 276, 264 )
 types = [ "a", "a2" ]
 
 [node name="ding3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -80.6883, 330 )
+position = Vector2( -92, 264 )
 types = [ "a", "a2" ]
 
 [node name="ding5" parent="." instance=ExtResource( 1 )]
-position = Vector2( -174.4, 330 )
+position = Vector2( -184, 264 )
 types = [ "r", "r2", "b", "b2" ]
 
 [node name="p1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 915.975, 80 )
+position = Vector2( 920, 88 )
 types = [ "r", "g" ]
 
 [node name="p2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1115.98, 80 )
+position = Vector2( 1120, 88 )
 types = [ "b", "g" ]
 
 [node name="p3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1315.98, 80 )
+position = Vector2( 1320, 80 )
 types = [ "r", "a" ]
 
 [node name="p4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1515.98, 80 )
+position = Vector2( 1520, 80 )
 types = [ "b", "a" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-autoplay = true

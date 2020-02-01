@@ -3,10 +3,10 @@ extends Node2D
 export var types = ['r', 'b']
 var type = "b"
 
-const sounds = {'r': preload("res://Game/SFX/BrooklynBD.wav"),
+const sounds = {'r': preload("res://Game/SFX/BrooklynSound 1.wav"),
 'g': preload("res://Game/SFX/BrooklynBell.wav"),
-'a': preload("res://Game/SFX/BrooklynHH.wav"),
-'b': preload("res://Game/SFX/BrooklynSound 1.wav")}
+'a': preload("res://Game/SFX/BrooklynBD.wav"),
+'b': preload("res://Game/SFX/BrooklynHH.wav")}
 
 # 1 or 2
 var sound = 0
@@ -35,7 +35,9 @@ func _input(event:InputEvent):
 		type = types[1]
 		$p1/AnimationPlayer.play("hit")
 
-func play_sound():
+func play_sound(t):
+	$s1.stream = sounds[t]
+	$s1.play()
 #	if sound == 1:
 #		$s1.play()
 #	if sound == 2:

@@ -8,7 +8,6 @@ extents = Vector2( 52.3696, 46.4671 )
 
 [node name="ding" type="Sprite"]
 position = Vector2( 0, 261.378 )
-scale = Vector2( 0.2, 1 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 

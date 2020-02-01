@@ -16,7 +16,7 @@ func _ready():
 func _physics_process(delta):
 	position.x += 200 * delta
 	
-	#position.x = fmod(position.x, 1024)
+	#position.x = fmod(position.x, 1920)
 
 func remove_part(p:String):
 	if get_node(p+'2').visible:
@@ -27,4 +27,17 @@ func remove_part(p:String):
 		return
 
 func _on_Area2D_body_entered(body):
-	remove_part(body.get_parent().get_parent().type)
+	var rem_t = ''
+	for t in types:
+		var t_orig = t
+		if t.ends_with('2'):
+			t = t.substr(0, 1)
+		if body.get_parent().get_parent().types.has(t):
+			body.get_parent().get_parent().play_sound(t)
+			rem_t = t
+			remove_part(t)
+			break
+	if rem_t != '':
+		types.erase(rem_t)
+	
+	
