@@ -38,15 +38,14 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Airconsole="*res://Shared/Airconsole.gd"
 SceneManager="*res://Shared/SceneManager.gd"
-Airconsole="*res://Game/ACServer.gd"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
 window/size/borderless=true
-window/dpi/allow_hidpi=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep_height"
 
