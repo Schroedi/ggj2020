@@ -27,6 +27,7 @@ func set_player_id(i):
 	playerId = i
 	if isAi():
 		# AI
+		isReady = true
 		$p1/Area2D2/CollisionShape2D.disabled = false
 
 func _ready():

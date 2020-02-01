@@ -14,28 +14,29 @@ script = ExtResource( 4 )
 position = Vector2( 960, 540 )
 texture = ExtResource( 2 )
 
+[node name="dingTeil" parent="." instance=ExtResource( 1 )]
+position = Vector2( -5.98129, 85.8474 )
+script = ExtResource( 3 )
+
 [node name="p1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 576, 504 )
+position = Vector2( 615, 665.912 )
 types = [ "r", "g" ]
 
 [node name="p2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 864, 488 )
+position = Vector2( 903, 649.912 )
 types = [ "b", "g" ]
 audioType = [ 0, 1 ]
 
 [node name="p3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1152, 488 )
+position = Vector2( 1191, 649.912 )
 types = [ "r", "a" ]
 audioType = [ 0, 1 ]
 
 [node name="p4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1440, 480 )
+position = Vector2( 1479, 641.912 )
 types = [ "b", "a" ]
 audioType = [ 1, 1 ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
-
-[node name="dingTeil" parent="." instance=ExtResource( 1 )]
-script = ExtResource( 3 )

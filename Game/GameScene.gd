@@ -57,11 +57,15 @@ func updatePlayerList():
 		var v = previews[i]
 		v.pname = p['name']
 		#v.pcolor = Color(p['devstate']['color'])		 
-		v.pready = players[i].isReady
-		allready = allready and v.pready
-		
+		v.pready = players[i].isReady or players[i].isAi()
 		#players[i].color = v.color
 		players[i].playerId = i
+	
+	for i in range(4):
+		allready = allready and (players[i].isReady or players[i].isAi())
+	
+	if Airconsole.botsOnly:
+		allready = true
 	
 	# set every non player as AI
 	for i in range(len(Airconsole.inst.players), 4):
@@ -72,7 +76,7 @@ func updatePlayerList():
 		$GameStartTimer.start()
 	
 	# did somebody cancel?
-	if not allready:	
+	if not allready:
 		Airconsole.started = false
 		if not $GameStartTimer.is_stopped():		
 			$GameStartTimer.stop() 
