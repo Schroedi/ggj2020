@@ -197,12 +197,15 @@ stream = ExtResource( 2 )
 bus = "Effects"
 
 [node name="Name" type="Label" parent="."]
+visible = false
 margin_left = -89.6184
-margin_top = -122.89
+margin_top = -309.416
 margin_right = 99.3816
-margin_bottom = -64.89
+margin_bottom = -251.416
+grow_horizontal = 2
 custom_fonts/font = SubResource( 3 )
-text = "My Name"
+text = "My Namehjjjjjj"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

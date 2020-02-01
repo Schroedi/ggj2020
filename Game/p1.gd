@@ -122,8 +122,9 @@ func collide(t):
 func update_names():
 	var id = int(name.substr(1,1)) - 1
 	if Airconsole.inst.players.size() > id:
-#		$Name.text = Airconsole.inst.players[id]['name']
-		$Name.text = str(playerId)
+		$Name.text = Airconsole.inst.players[id]['name']
+		$Name.visible = true
+		#$Name.text = str(playerId)
 
 func _process(delta):
 	# update input
