@@ -4,7 +4,7 @@ export var types = ['r', 'b']
 export var audioType = [0, 0]
 var type = ""
 var soundId = 1
-
+var isReady = false
 
 const sounds = {'g':[ preload("res://Game/SFX/Schraubschlussel.wav"), preload("res://Game/SFX/Rohrzange.wav") ],
 'r': [ preload("res://Game/SFX/Hammer_Bass.wav"), preload("res://Game/SFX/Hammer_Eisen.wav") ],
@@ -47,8 +47,10 @@ func _ready():
 
 func _input(event:InputEvent):
 	if event.is_action_pressed(name + "a"):
+		isReady = true
 		input_sound(1)
 	if event.is_action_pressed(name + "b"):
+		isReady = true
 		input_sound(2)
 
 func input_sound(sId):
@@ -107,6 +109,7 @@ func airconsoleInput():
 	var controller_id = str(Airconsole.inst.players[playerId]['devId'])
 	#print(str(Airconsole.inst.players) + str(Airconsole.inst.inputs))
 	if Airconsole.inst.inputs.has(controller_id):
+		isReady = true
 		var sound = int(Airconsole.inst.inputs[controller_id])
 		#Airconsole.inst.inputs[controller_id] = 0
 		print(name  + ': sound' + str(sound))

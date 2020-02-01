@@ -56,8 +56,9 @@ func updatePlayerList():
 		#print("player: " + str(p))
 		var v = previews[i]
 		v.pname = p['name']
-		#v.pcolor = Color(p['devstate']['color'])
-		#v.pready = p['devstate']['isready']
+		#v.pcolor = Color(p['devstate']['color'])		 
+		v.pready = players[i].isReady
+		print ("p ready:"+str(i)+" "+str(v.pready))
 		allready = allready and v.pready
 		
 		#players[i].color = v.color
@@ -72,9 +73,11 @@ func updatePlayerList():
 		$GameStartTimer.start()
 	
 	# did somebody cancel?
-	if not allready and not $GameStartTimer.is_stopped():
-		$GameStartTimer.stop()
+	if not allready:	
+		Airconsole.started = false
+		if not $GameStartTimer.is_stopped():		
+			$GameStartTimer.stop() 
 
 
 func _on_GameStartTimer_timeout():
-	pass # Replace with function body.
+	Airconsole.started =true

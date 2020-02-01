@@ -14,7 +14,8 @@ func _ready():
 
 
 func _physics_process(delta):
-	position.x += 300 * delta
+	if(Airconsole.started):
+		position.x += 300 * delta
 	
 	#position.x = fmod(position.x, 1920)
 
