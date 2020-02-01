@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Game/dingTeil.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/GFX/Background_Scrollband.png" type="Texture" id=2]
-[ext_resource path="res://Game/dingTeil.gd" type="Script" id=3]
 [ext_resource path="res://Game/MainScene.gd" type="Script" id=4]
 [ext_resource path="res://Game/GFX/Background_Ranch.png" type="Texture" id=5]
 [ext_resource path="res://Game/SFX/Rhythmic Repair Ranch.wav" type="AudioStream" id=6]
 [ext_resource path="res://Game/p1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Game/GFX/Background_Vorderkante.png" type="Texture" id=8]
+[ext_resource path="res://Game/GFX/Wolken_1.png" type="Texture" id=9]
+[ext_resource path="res://Game/GFX/Wolken_2.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 50, 200 )
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 4 )
@@ -27,27 +31,47 @@ position = Vector2( 960, 540 )
 texture = ExtResource( 8 )
 
 [node name="dingTeil" parent="." instance=ExtResource( 1 )]
-position = Vector2( 625, 85.847 )
-script = ExtResource( 3 )
+position = Vector2( 615, 85.847 )
+
+[node name="Wolken" type="Node2D" parent="."]
+
+[node name="Wolken_1" type="Sprite" parent="Wolken"]
+position = Vector2( 960, 589.384 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1080 )
+
+[node name="Wolken_2" type="Sprite" parent="Wolken"]
+position = Vector2( 960, 540 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1080 )
 
 [node name="p1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 615, 665.912 )
+position = Vector2( 615, 665 )
 types = [ "g", "r" ]
 
 [node name="p2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 903, 649.912 )
+position = Vector2( 903, 665 )
 types = [ "b", "g" ]
 audioType = [ 0, 1 ]
 
 [node name="p3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1191, 649.912 )
+position = Vector2( 1191, 665 )
 types = [ "a", "r" ]
 audioType = [ 0, 1 ]
 
 [node name="p4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1479, 641.912 )
+position = Vector2( 1479, 665 )
 types = [ "b", "a" ]
 audioType = [ 1, 1 ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+
+[node name="Ende" type="Area2D" parent="."]
+position = Vector2( 1865.42, 875.578 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ende"]
+shape = SubResource( 1 )
+[connection signal="area_entered" from="Ende" to="." method="_on_Ende_area_entered"]
