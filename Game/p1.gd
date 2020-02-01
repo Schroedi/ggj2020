@@ -35,8 +35,30 @@ func _ready():
 #	$p1/b.visible = types.has('b')
 #	$p1/a.visible = types.has('a')
 	
-	animA = $PigA
-	animB = $PigB
+	if name == 'p1':
+		$HorseA.visible = true
+		$HorseB.visible = true
+		$Horse_Head.visible = true
+		animA = $HorseA
+		animB = $HorseB
+	if name == 'p2':
+		$PenguinA.visible = true
+		$PenguinB.visible = true
+		$Penguin_Head.visible = true
+		animA = $PenguinA
+		animB = $PenguinB
+	if name == 'p3':
+		$DogA.visible = true
+		$DogB.visible = true
+		$Dog_Head.visible = true
+		animA = $DogA
+		animB = $DogB
+	if name == 'p4':
+		$PigA.visible = true
+		$PigB.visible = true
+		$Pig_Head.visible = true
+		animA = $PigA
+		animB = $PigB
 	
 	animA.connect("animation_finished", self, "_on_animA_animation_finished")
 	animB.connect("animation_finished", self, "_on_animB_animation_finished")

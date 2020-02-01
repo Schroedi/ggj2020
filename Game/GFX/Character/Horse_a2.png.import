@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/horse_a2.png-84bbf7235a81cfc74fe3e1b86dcaf05d.stex"
+path="res://.import/Horse_a2.png-11f8b9f4c7e8e43c3b583295609303be.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/GFX/Character/horse_a2.png"
-dest_files=[ "res://.import/horse_a2.png-84bbf7235a81cfc74fe3e1b86dcaf05d.stex" ]
+source_file="res://Game/GFX/Character/Horse_a2.png"
+dest_files=[ "res://.import/Horse_a2.png-11f8b9f4c7e8e43c3b583295609303be.stex" ]
 
 [params]
 
