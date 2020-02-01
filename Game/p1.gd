@@ -67,7 +67,6 @@ func input_sound(sId):
 func collide(t):
 	if isAi():
 		if not types.has(t):
-			print('wrong tool!')
 			return false
 		else:
 			# for AI set type, otherwise it's already set
