@@ -41,12 +41,16 @@ config/icon="res://icon.png"
 SceneManager="*res://Shared/SceneManager.gd"
 Airconsole="*res://Game/ACServer.gd"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/width=1920
 window/size/height=1080
+window/size/resizable=false
 window/size/borderless=true
-window/dpi/allow_hidpi=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep_height"
 

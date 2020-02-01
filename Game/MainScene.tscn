@@ -1,53 +1,53 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Game/ding.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Game/GFX/background mit tieren_Zeichenflche 1.png" type="Texture" id=2]
+[ext_resource path="res://Game/dingTeil.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/GFX/Background_Scrollband.png" type="Texture" id=2]
+[ext_resource path="res://Game/dingTeil.gd" type="Script" id=3]
 [ext_resource path="res://Game/MainScene.gd" type="Script" id=4]
+[ext_resource path="res://Game/GFX/Background_Ranch.png" type="Texture" id=5]
 [ext_resource path="res://Game/SFX/Rhythmic Repair Ranch.wav" type="AudioStream" id=6]
 [ext_resource path="res://Game/p1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Game/GFX/Background_Vorderkante.png" type="Texture" id=8]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="background_Zeichenflche 1" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
+texture = ExtResource( 5 )
+
+[node name="Background_Scrollband" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
 texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1080 )
 
-[node name="ding" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 760 )
-types = [ "r", "r2", "b", "b2" ]
+[node name="Background_Vorderkante" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+texture = ExtResource( 8 )
 
-[node name="ding2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -432, 768 )
-types = [ "a", "a2" ]
-
-[node name="ding3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -1008, 772.077 )
-types = [ "a", "a2" ]
-
-[node name="ding5" parent="." instance=ExtResource( 1 )]
-position = Vector2( -1152, 778.622 )
-types = [ "r", "r2", "b", "b2" ]
+[node name="dingTeil" parent="." instance=ExtResource( 1 )]
+position = Vector2( 625, 85.847 )
+script = ExtResource( 3 )
 
 [node name="p1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 576, 504 )
-types = [ "r", "g" ]
+position = Vector2( 615, 665.912 )
+types = [ "g", "r" ]
 
 [node name="p2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 864, 488 )
+position = Vector2( 903, 649.912 )
 types = [ "b", "g" ]
 audioType = [ 0, 1 ]
 
 [node name="p3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1152, 488 )
-types = [ "r", "a" ]
+position = Vector2( 1191, 649.912 )
+types = [ "a", "r" ]
 audioType = [ 0, 1 ]
 
 [node name="p4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1440, 480 )
+position = Vector2( 1479, 641.912 )
 types = [ "b", "a" ]
 audioType = [ 1, 1 ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-autoplay = true

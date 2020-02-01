@@ -10,6 +10,8 @@ var started = false
 # profiling in the browser. Running without a browser is supported by defualt.
 var offlineDebug = false
 
+var botsOnly = true
+
 # Input dict with an entry for each player. See updateInputs.
 var inputs = {}
 
@@ -33,7 +35,10 @@ func _ready():
 	var restart = false;
 
 	airconsole.onMessage = function(device_id, data) {
-		  if (data.data.input !== undefined) {
+		if (data.data === undefined) {
+			return;
+		}
+		if (data.data.input !== undefined) {
 			PlayerInputs[device_id] = data.data.input;
 			//console.log('got message');
 			//console.log(data.data);
@@ -64,9 +69,9 @@ func updatePlayers():
 	# for testing, we return some default players
 	
 	if not OS.has_feature('JavaScript') or offlineDebug:
-		players = [{'devId':  0, 'name': 'p1', 'master': true,  'devstate': {'color':'#ff0000', 'isready':true}},
-				   {'devId': -2, 'name': 'p2', 'master': false, 'devstate': {'color':'#00ff00', 'isready':true}}]
-		#players = []
+		#players = [{'devId':  0, 'name': 'p1', 'master': true,  'devstate': {'color':'#ff0000', 'isready':true}},
+		#		   {'devId': -2, 'name': 'p2', 'master': false, 'devstate': {'color':'#00ff00', 'isready':true}}]
+		players = []
 		return
 	
 	var js = """

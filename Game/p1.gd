@@ -27,6 +27,7 @@ func set_player_id(i):
 	playerId = i
 	if isAi():
 		# AI
+		isReady = true
 		$p1/Area2D2/CollisionShape2D.disabled = false
 
 func _ready():
@@ -35,8 +36,30 @@ func _ready():
 #	$p1/b.visible = types.has('b')
 #	$p1/a.visible = types.has('a')
 	
-	animA = $PigA
-	animB = $PigB
+	if name == 'p1':
+		$HorseA.visible = true
+		$HorseB.visible = true
+		$Horse_Head.visible = true
+		animA = $HorseA
+		animB = $HorseB
+	if name == 'p2':
+		$PenguinA.visible = true
+		$PenguinB.visible = true
+		$Penguin_Head.visible = true
+		animA = $PenguinA
+		animB = $PenguinB
+	if name == 'p3':
+		$DogA.visible = true
+		$DogB.visible = true
+		$Dog_Head.visible = true
+		animA = $DogA
+		animB = $DogB
+	if name == 'p4':
+		$PigA.visible = true
+		$PigB.visible = true
+		$Pig_Head.visible = true
+		animA = $PigA
+		animB = $PigB
 	
 	animA.connect("animation_finished", self, "_on_animA_animation_finished")
 	animB.connect("animation_finished", self, "_on_animB_animation_finished")
@@ -57,7 +80,7 @@ func input_sound(sId):
 	if $p1/AnimationPlayer.is_playing():
 		return
 	# sound id is 1 or 2
-	#get_node("s"+str(soundId)).play()
+	get_node("s"+str(sId)).play()
 	type = types[sId-1]
 	soundId = sId-1
 	$p1/AnimationPlayer.play("hit")
@@ -78,9 +101,13 @@ func collide(t):
 		print('wrong tool!')
 		return false
 	
-	$s1.stream = sounds[t][audioType[soundId]]
-	$s1.seek(0)
-	$s1.play()
+	if types[0] == t:
+		$s1.seek(0)
+		$s1.play()
+	else:
+		$s2.seek(0)
+		$s2.play()
+	
 	$p1/Area2D2/CollisionShape2D.set_deferred('disabled', true)
 	type = ''
 	if isAi():
@@ -95,8 +122,9 @@ func collide(t):
 func update_names():
 	var id = int(name.substr(1,1)) - 1
 	if Airconsole.inst.players.size() > id:
-#		$Name.text = Airconsole.inst.players[id]['name']
-		$Name.text = str(playerId)
+		$Name.text = Airconsole.inst.players[id]['name']
+		$Name.visible = true
+		#$Name.text = str(playerId)
 
 func _process(delta):
 	# update input
