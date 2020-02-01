@@ -303,6 +303,10 @@ ControllerGenerator.prototype.onAirConsoleMessage = function(device_id, data) {
   if (data.container_class) {
     this.toggleContainerClass(data.container_class);
   }
+  if(data.animal)
+  {
+	  setAnimalImage(data.animal);
+  }
 };
 
 ControllerGenerator.prototype.formatMessage = function(id, data) {

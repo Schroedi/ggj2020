@@ -13,20 +13,30 @@
   <link rel="stylesheet" type="text/css" href="controller/styles/controls.css">
 </head>
 <body>
-
-  <div id="controller-container">
-<div id="view-0" class="view" style="display: flex;">
-    <div id="view-0-section-0" class="section " style="height: 100%;">
-    <div id="view-0-section-0-element-0" class="button-300-300 button-element element">
+<script type="text/javascript">
+function setAnimalImage(id)
+{
+    var urlString = 'url(controller_/' + id + '.png)';
+    document.getElementById(view-0).style.backgroundImage =  urlString;
+}
+}
+</script>
+<div id="view-0" class="view" style="display: flex; background-image: url('controller_1.png');  background-repeat: no-repeat; background-size: contain;">
+    <div id="view-0-section-1" class="section " style="height: 100%;">
+    <div id="view-0-section-1-element-0" class="button-element element">
+  <div class="button-text">Label</div>
+</div>
+</div>
+    <div id="view-0-section-2" class="section " style="height: 100%;">
+    <div id="view-0-section-2-element-0" class="button-element element">
   <div class="button-text">Label</div>
 </div>
 </div>
 </div>
-
-
 <script type="text/javascript">
-  var ctrl_data = '{"orientation":"landscape","selected_view_id":"view-0","views":[{"id":"view-0","sections":[{"id":"view-0-section-0","elements":[{"id":"view-0-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-0-section-0-element-0","css_classes":"button-300-300","view_action":{"target":null,"view_id":null},"label":"Label","send_onrelease":false,"message_data":[{"key":"input","value":"1"}]}}],"classes":[]}]}]}';
+  var ctrl_data = '{"orientation":"landscape","selected_view_id":"view-0","views":[{"id":"view-0","sections":[{"id":"view-0-section-1","elements":[{"id":"view-0-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-0-section-1-element-0","css_classes":"button-300-300","view_action":{"target":null,"view_id":null},"label":"Label","send_onrelease":false,"message_data":[{"key":"input","value":"1"}]}}],"classes":[]},{"id":"view-0-section-2","elements":[{"id":"view-0-section-2-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-0-section-2-element-0","css_classes":"button-300-300","view_action":{"target":null,"view_id":null},"label":"Label","send_onrelease":false,"message_data":[{"key":"input","value":"2"}]}}],"classes":[]}]}]}';
 </script>
+
 
   </div>
 
