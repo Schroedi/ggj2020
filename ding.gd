@@ -11,6 +11,9 @@ func _ready():
 	$g2.visible = types.has('g2')
 	$b2.visible = types.has('b2')
 	$a2.visible = types.has('a2')
+	
+	scale *= rand_range(0.8,1)
+	$Haus_color.self_modulate = Color.from_hsv(randf(), rand_range(0.7, 0.95), rand_range(0.7, 0.95))
 
 
 func _physics_process(delta):

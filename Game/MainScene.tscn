@@ -31,7 +31,7 @@ position = Vector2( 960, 540 )
 texture = ExtResource( 8 )
 
 [node name="dingTeil" parent="." instance=ExtResource( 1 )]
-position = Vector2( 625, 85.847 )
+position = Vector2( 615, 85.847 )
 
 [node name="Wolken" type="Node2D" parent="."]
 

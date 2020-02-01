@@ -13,13 +13,14 @@
 [ext_resource path="res://Game/GFX/Ding/Haus_g2.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5, 56 )
+extents = Vector2( 15.773, 56 )
 
 [node name="ding" type="Sprite"]
 scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 
 [node name="Haus_color" type="Sprite" parent="."]
+self_modulate = Color( 0.71, 0.2059, 0.214302, 1 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 8 )
 

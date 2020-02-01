@@ -71,10 +71,12 @@ func _ready():
 func _input(event:InputEvent):
 	if event.is_action_pressed(name + "a"):
 		isReady = true
+		playerId = 1
 		input_sound(1)
 	if event.is_action_pressed(name + "b"):
 		isReady = true
 		input_sound(2)
+		playerId = 1
 
 func input_sound(sId):
 	if $p1/AnimationPlayer.is_playing():
