@@ -1,12 +1,18 @@
-GODOT=/Applications/Godot.app/Contents/MacOS/Godot
+GODOT=""
+USERNAME := $(shell echo $$USERNAME)
+UsNAME:= Rico
+ifeq ($(USERNAME),$(UsNAME))
+	GODOT=/c/Tools/Godot_v3.2-stable_mono_win64/Godot_v3.2-stable_mono_win64.exe
+endif
+
 #EXPORT=--export
 EXPORT=--export-debug
 
 .PHONY: all screen controller serve publish
 
-all: screen controller
+all: screen
 
-screen:
+screen: 
 	$(GODOT) $(EXPORT) Game Exported/screen.html
 
 controller:
@@ -17,7 +23,9 @@ controller:
 	-$(GODOT) $(EXPORT) Controller Exported/controller.html
 	mv project.godot.orig project.godot
 serve:
-	cd Exported && python3 -m http.server 8000
+	cd Exported && python -m http.server 8000
 
+te:
+	
 publish:
 	rsync -c Exported/* keksdev.de:/var/www/html/keksdev/acgodot/
