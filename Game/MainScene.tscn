@@ -19,16 +19,19 @@ script = ExtResource( 4 )
 [node name="background_Zeichenflche 1" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
 texture = ExtResource( 5 )
+region_rect = Rect2( 0, 230, 1920, 850 )
 
 [node name="Background_Scrollband" type="Sprite" parent="."]
-position = Vector2( 960, 540 )
+position = Vector2( 960, 980 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 1920, 1080 )
+region_rect = Rect2( 0, 880, 1920, 150 )
 
 [node name="Background_Vorderkante" type="Sprite" parent="."]
-position = Vector2( 960, 540 )
+position = Vector2( 960, 1030 )
 texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 0, 980, 1920, 100 )
 
 [node name="dingTeil" parent="." instance=ExtResource( 1 )]
 position = Vector2( 615, 85.847 )
@@ -36,16 +39,16 @@ position = Vector2( 615, 85.847 )
 [node name="Wolken" type="Node2D" parent="."]
 
 [node name="Wolken_1" type="Sprite" parent="Wolken"]
-position = Vector2( 960, 589.384 )
+position = Vector2( 960, 195.582 )
 texture = ExtResource( 9 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 1920, 1080 )
+region_rect = Rect2( 0, 0, 1920, 240 )
 
 [node name="Wolken_2" type="Sprite" parent="Wolken"]
-position = Vector2( 960, 540 )
+position = Vector2( 960, 100 )
 texture = ExtResource( 10 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 1920, 1080 )
+region_rect = Rect2( 0, 0, 1920, 200 )
 
 [node name="p1" parent="." instance=ExtResource( 7 )]
 position = Vector2( 615, 665 )

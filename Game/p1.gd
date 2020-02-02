@@ -117,6 +117,9 @@ func _ready():
 	$s2.stream = sounds[types[1]][audioType[1]]
 	$UpdateACInfo.start()
 	$Wiggle.play("Headshake")
+	
+	# start as AI
+	set_player_id(-1)
 
 func _input(event:InputEvent):
 	if event.is_action_pressed(name + "a"):

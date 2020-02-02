@@ -30,7 +30,6 @@ func setScore(s):
 
 func _ready():
 	inst = self
-	print('Feature Debug:'+ str(OS.has_feature('JavaScript')) )
 	# init AC: register state and AC callbacks on js side
 	JavaScript.eval("""
 	var airconsole = new AirConsole();

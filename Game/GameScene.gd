@@ -68,9 +68,10 @@ func updatePlayerList():
 		allready = true
 	
 	# set every non player as AI
-	for i in range(len(Airconsole.inst.players), 4):
-		players[i].playerId = -1
-	
+	if OS.has_feature('JavaScript') and len(Airconsole.inst.players) > 1:
+		for i in range(len(Airconsole.inst.players), 4):
+			players[i].playerId = -1
+		
 	# all ready?
 	if not Airconsole.started and allready and $GameStartTimer.is_stopped():
 		$GameStartTimer.start()
@@ -84,4 +85,5 @@ func updatePlayerList():
 
 func _on_GameStartTimer_timeout():
 	Airconsole.started =true
+	$MainScene/dingTeil.set_physics_process(true)
 	$MainScene/AudioStreamPlayer.play()

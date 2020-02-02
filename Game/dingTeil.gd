@@ -1,4 +1,4 @@
-extends Node
+extends RigidBody2D
 
 var offset = 16
 var spawnDings = [
@@ -100,11 +100,12 @@ var spawnDings = [
 
 var dingScene = preload("res://Game/ding.tscn")
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready():	
+	set_physics_process(false)
 #	spawnDings = []
 #	for i in range(100):
 #		spawnDings.append([i*1, ['a', 'a2', 'r', 'r2', 'g', 'g2', 'b', 'b2']])
-	
+
 	var i=0
 	for ding in spawnDings:
 		var newDing = dingScene.instance()
@@ -113,7 +114,3 @@ func _ready():
 		newDing.position =Vector2(-144*ding[0],768 +fmod(i,2)*rand_range(25.0,40.0))
 		i+=1
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
