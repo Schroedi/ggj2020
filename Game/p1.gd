@@ -163,7 +163,6 @@ func collide(t):
 	
 	if t != type:
 		$Fail.play()
-		print('wrong tool!')
 		return false
 	
 	if types[0] == t:

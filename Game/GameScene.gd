@@ -50,7 +50,7 @@ func updatePlayerList():
 		#players.append(p)
 	
 	# map player infos to ui and players
-	var allready = not OS.has_feature('JavaScript') or len(Airconsole.inst.players) > 0
+	var allready = true
 	for i in range(len(Airconsole.inst.players)):
 		var p = Airconsole.inst.players[i]
 		#print("player: " + str(p))
@@ -61,9 +61,14 @@ func updatePlayerList():
 		v.pready = players[i].isReady or players[i].isAi()
 		#players[i].color = v.color
 	
+	var nonAIcount = 0
 	for i in range(4):
-		print(players[i].isReady or players[i].isAi())
+		if not players[i].isAi():
+			nonAIcount += 1
 		allready = allready and (players[i].isReady or players[i].isAi())
+	
+	if nonAIcount < 1:
+		allready = false
 	
 	if Airconsole.botsOnly:
 		allready = true
