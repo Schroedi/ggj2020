@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/erklaerinfographic_Zeichenfläche 1.png-8309064aad80739660fc14fb184f0b34.stex"
+path="res://.import/erklaerinfographic.png-dd487977bc21cffcadf1c6084ad0a62a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/GFX/erklaerinfographic_Zeichenfläche 1.png"
-dest_files=[ "res://.import/erklaerinfographic_Zeichenfläche 1.png-8309064aad80739660fc14fb184f0b34.stex" ]
+source_file="res://Game/GFX/erklaerinfographic.png"
+dest_files=[ "res://.import/erklaerinfographic.png-dd487977bc21cffcadf1c6084ad0a62a.stex" ]
 
 [params]
 
