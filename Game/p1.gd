@@ -23,7 +23,7 @@ var animA:AnimatedSprite
 var animB:AnimatedSprite
 
 func isAi():
-	return playerId < 0
+	return playerId == -1
 
 func set_player_id(i):
 	if i == playerId:
@@ -118,8 +118,6 @@ func _ready():
 	$UpdateACInfo.start()
 	$Wiggle.play("Headshake")
 	
-	# start as AI
-	set_player_id(-1)
 
 func _input(event:InputEvent):
 	if event.is_action_pressed(name + "a"):
@@ -135,7 +133,7 @@ func input_sound(sId):
 	if $p1/AnimationPlayer.is_playing():
 		return
 	# sound id is 1 or 2
-	get_node("s"+str(sId)).play()
+	#get_node("s"+str(sId)).play()
 	type = types[sId-1]
 	soundId = sId-1
 	$p1/AnimationPlayer.play("hit")
@@ -175,13 +173,6 @@ func collide(t):
 		
 	return true
 
-func update_names():
-	var id = int(name.substr(1,1)) - 1
-	if Airconsole.inst.players.size() > id:
-		$Name.text = Airconsole.inst.players[id]['name']
-		$Name.visible = true
-		#$Name.text = str(playerId)
-
 func _process(delta):
 	# update input
 	if OS.has_feature('JavaScript') and not Airconsole.inst.offlineDebug:
@@ -203,7 +194,6 @@ func airconsoleInput():
 func _on_UpdateACInfo_timeout():
 	if not Airconsole.inst:
 		return
-	update_names()
 	pass # Replace with function body.
 
 
@@ -221,4 +211,10 @@ func _on_animA_animation_finished():
 func _on_animB_animation_finished():
 	animB.frame = 0
 	animB.stop()
+	pass # Replace with function body.
+
+
+func _on_StartWaitAI_timeout():
+	if (playerId == -2):
+		set_player_id(-1)
 	pass # Replace with function body.

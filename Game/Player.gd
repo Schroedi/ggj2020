@@ -15,6 +15,7 @@ var targetSound:int = 0
 
 
 func _process(delta):
+	$Paddle/Node2D/Label.text = str(playerId)
 	# update input
 	if OS.has_feature('JavaScript') and not Airconsole.inst.offlineDebug:
 		airconsoleInput()

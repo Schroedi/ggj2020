@@ -50,27 +50,23 @@ func updatePlayerList():
 		#players.append(p)
 	
 	# map player infos to ui and players
-	var allready = len(Airconsole.inst.players) > 0
+	var allready = true
 	for i in range(len(Airconsole.inst.players)):
 		var p = Airconsole.inst.players[i]
 		#print("player: " + str(p))
 		var v = previews[i]
 		v.pname = p['name']
+		players[i].playerId = i
 		#v.pcolor = Color(p['devstate']['color'])		 
 		v.pready = players[i].isReady or players[i].isAi()
 		#players[i].color = v.color
-		players[i].playerId = i
 	
 	for i in range(4):
+		print(players[i].isReady or players[i].isAi())
 		allready = allready and (players[i].isReady or players[i].isAi())
 	
 	if Airconsole.botsOnly:
 		allready = true
-	
-	# set every non player as AI
-	if OS.has_feature('JavaScript') and len(Airconsole.inst.players) > 1:
-		for i in range(len(Airconsole.inst.players), 4):
-			players[i].playerId = -1
 		
 	# all ready?
 	if not Airconsole.started and allready and $GameStartTimer.is_stopped():
@@ -84,6 +80,7 @@ func updatePlayerList():
 
 
 func _on_GameStartTimer_timeout():
+	$"MainScene/Start bodies".linear_velocity.x = 300
 	Airconsole.started =true
-	$MainScene/dingTeil.set_physics_process(true)
+	$MainScene/dingTeil.linear_velocity.x = 300
 	$MainScene/AudioStreamPlayer.play()

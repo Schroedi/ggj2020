@@ -1,9 +1,8 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Game/SFX/BrooklynSound 1.wav" type="AudioStream" id=2]
 [ext_resource path="res://Game/p1.gd" type="Script" id=3]
-[ext_resource path="res://Game/Fonts/NotoSans-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Game/GFX/Character/Pig_Head.png" type="Texture" id=5]
 [ext_resource path="res://Game/GFX/Character/Pig_a1.png" type="Texture" id=6]
 [ext_resource path="res://Game/GFX/Character/Pig_a2.png" type="Texture" id=7]
@@ -73,12 +72,7 @@ tracks/2/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="DynamicFont" id=3]
-size = 42
-use_filter = true
-font_data = ExtResource( 4 )
-
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=4]
 resource_name = "Headshake"
 length = 0.48
 loop = true
@@ -95,7 +89,7 @@ tracks/0/keys = {
 "values": [ 0.0, -25.0, 0.0 ]
 }
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 8 ) ],
 "loop": false,
@@ -103,7 +97,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 9 ) ],
 "loop": false,
@@ -111,7 +105,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ ExtResource( 30 ), ExtResource( 28 ), ExtResource( 31 ), ExtResource( 31 ) ],
 "loop": false,
@@ -119,7 +113,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [ ExtResource( 29 ), ExtResource( 32 ), ExtResource( 27 ), ExtResource( 27 ) ],
 "loop": false,
@@ -127,7 +121,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [ ExtResource( 14 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 15 ) ],
 "loop": false,
@@ -135,7 +129,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
 "frames": [ ExtResource( 21 ), ExtResource( 19 ), ExtResource( 24 ), ExtResource( 24 ) ],
 "loop": false,
@@ -143,7 +137,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ ExtResource( 22 ), ExtResource( 26 ), ExtResource( 18 ), ExtResource( 18 ) ],
 "loop": false,
@@ -151,7 +145,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ ExtResource( 20 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 25 ) ],
 "loop": false,
@@ -214,20 +208,6 @@ bus = "Effects"
 stream = ExtResource( 2 )
 bus = "Effects"
 
-[node name="Name" type="Label" parent="."]
-visible = false
-margin_left = -89.6184
-margin_top = -309.416
-margin_right = 99.3816
-margin_bottom = -251.416
-grow_horizontal = 2
-custom_fonts/font = SubResource( 3 )
-text = "My Namehjjjjjj"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="UpdateACInfo" type="Timer" parent="."]
 wait_time = 0.3
 
@@ -236,7 +216,7 @@ wait_time = 0.4
 one_shot = true
 
 [node name="Wiggle" type="AnimationPlayer" parent="."]
-anims/Headshake = SubResource( 12 )
+anims/Headshake = SubResource( 4 )
 
 [node name="Pig_Head" type="Sprite" parent="."]
 visible = false
@@ -265,38 +245,44 @@ offset = Vector2( -27.7902, 2.63394 )
 
 [node name="PigA" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 
 [node name="PigB" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 
 [node name="HorseA" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 6 )
+frames = SubResource( 7 )
 
 [node name="HorseB" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 7 )
+frames = SubResource( 8 )
 
 [node name="DogA" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 8 )
+frames = SubResource( 9 )
 
 [node name="DogB" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 9 )
+frames = SubResource( 10 )
 
 [node name="PenguinA" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 10 )
+frames = SubResource( 11 )
 
 [node name="PenguinB" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 11 )
+frames = SubResource( 12 )
 
 [node name="Fail" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 33 )
 bus = "Effects"
+
+[node name="StartWaitAI" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
 [connection signal="timeout" from="UpdateACInfo" to="." method="_on_UpdateACInfo_timeout"]
 [connection signal="timeout" from="AiDisableTimer" to="." method="_on_AiDisableTimer_timeout"]
+[connection signal="timeout" from="StartWaitAI" to="." method="_on_StartWaitAI_timeout"]
