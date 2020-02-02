@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var offset = 16
 var spawnDings = [
@@ -104,7 +104,7 @@ func _ready():
 #	spawnDings = []
 #	for i in range(100):
 #		spawnDings.append([i*1, ['a', 'a2', 'r', 'r2', 'g', 'g2', 'b', 'b2']])
-	
+
 	var i=0
 	for ding in spawnDings:
 		var newDing = dingScene.instance()
@@ -115,5 +115,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if(Airconsole.started):
+		position.x += 300 * delta
