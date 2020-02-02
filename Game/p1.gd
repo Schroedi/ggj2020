@@ -6,6 +6,8 @@ var type = ""
 var soundId = 1
 var isReady = false
 
+var wiggle_base_speed = 1
+
 const sounds = {'g':[ preload("res://Game/SFX/Schraubschlussel.wav"), preload("res://Game/SFX/Rohrzange.wav") ],
 'r': [ preload("res://Game/SFX/Hammer_Bass.wav"), preload("res://Game/SFX/Hammer_Eisen.wav") ],
 'b': [ preload("res://Game/SFX/Sage.wav"), preload("res://Game/SFX/Axt.wav") ],
@@ -34,8 +36,15 @@ func set_player_id(i):
 		isReady = true
 		$p1/Area2D2/CollisionShape2D.disabled = false
 
+func newScore(s):
+	var scaling = range_lerp(clamp(s, 0, 1500), 0, 1500, .05, 1.5)
+	set_wiggle(scaling)
+
+
 func _ready():
 	$Fail.stream = fail_sounds[name]
+	
+	Airconsole.connect("newScore", self, 'newScore')
 	
 	if name == 'p1':
 		$HorseA.visible = true
@@ -44,11 +53,10 @@ func _ready():
 		$Wiggle.root_node = $Horse_Head.get_path()
 		
 		var anim = $Wiggle.get_animation("Headshake").duplicate()
-		var v = anim.track_get_key_value(0, 1)
-		# amplitude scaling
-		anim.track_set_key_value(0, 1, v * 0.5)
 		$Wiggle.remove_animation("Headshake")
 		$Wiggle.add_animation("Headshake", anim)
+		wiggle_base_speed = 0.4
+		set_wiggle(1)
 		
 		# time offset
 		$Wiggle.call_deferred("seek", 0.1)
@@ -62,11 +70,10 @@ func _ready():
 		$Wiggle.root_node = $Penguin_Head.get_path()
 		
 		var anim = $Wiggle.get_animation("Headshake").duplicate()
-		var v = anim.track_get_key_value(0, 1)
-		# amplitude scaling
-		anim.track_set_key_value(0, 1, v * 1)
 		$Wiggle.remove_animation("Headshake")
 		$Wiggle.add_animation("Headshake", anim)
+		wiggle_base_speed = 1
+		set_wiggle(1)
 		
 		# time offset
 		$Wiggle.call_deferred("seek", 0.1)
@@ -80,11 +87,10 @@ func _ready():
 		$Wiggle.root_node = $Dog_Head.get_path()
 		
 		var anim = $Wiggle.get_animation("Headshake").duplicate()
-		var v = anim.track_get_key_value(0, 1)
-		# amplitude scaling
-		anim.track_set_key_value(0, 1, v*1.5)
 		$Wiggle.remove_animation("Headshake")
 		$Wiggle.add_animation("Headshake", anim)
+		wiggle_base_speed = 1.4
+		set_wiggle(1)
 		
 		# time offset
 		$Wiggle.call_deferred("seek", 0.3)
@@ -98,11 +104,10 @@ func _ready():
 		$Wiggle.root_node = $Pig_Head.get_path()
 		
 		var anim = $Wiggle.get_animation("Headshake").duplicate()
-		var v = anim.track_get_key_value(0, 1)
-		# amplitude scaling
-		anim.track_set_key_value(0, 1, v * 0.2)
 		$Wiggle.remove_animation("Headshake")
 		$Wiggle.add_animation("Headshake", anim)
+		wiggle_base_speed = 0.2
+		set_wiggle(1)
 		
 		# time offset
 		$Wiggle.call_deferred("seek", 0.1)
@@ -117,7 +122,13 @@ func _ready():
 	$s2.stream = sounds[types[1]][audioType[1]]
 	$UpdateACInfo.start()
 	$Wiggle.play("Headshake")
+	newScore(0)
 	
+
+func set_wiggle(scale):
+	var anim = $Wiggle.get_animation("Headshake")
+	# amplitude scaling
+	anim.track_set_key_value(0, 1, -25 * wiggle_base_speed * scale)
 
 func _input(event:InputEvent):
 	if event.is_action_pressed(name + "a"):
