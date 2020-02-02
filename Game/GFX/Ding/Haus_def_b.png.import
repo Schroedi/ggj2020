@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/haus_complete.png-babc03627f968aa4748042ef84bbf890.stex"
+path="res://.import/Haus_def_b.png-81e1c6d6a240b22adbfbc24c096a91d1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/GFX/Ding/haus_complete.png"
-dest_files=[ "res://.import/haus_complete.png-babc03627f968aa4748042ef84bbf890.stex" ]
+source_file="res://Game/GFX/Ding/Haus_def_b.png"
+dest_files=[ "res://.import/Haus_def_b.png-81e1c6d6a240b22adbfbc24c096a91d1.stex" ]
 
 [params]
 
