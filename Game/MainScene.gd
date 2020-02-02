@@ -5,8 +5,10 @@ func _input(event):
 		Airconsole.restart()
 
 func _process(delta):
-	var x = $"Background_Scrollband".region_rect.position.x
-	$"Background_Scrollband".region_rect.position.x = fmod(x + delta * -300, 1920)
+	var x
+	if Airconsole.started:
+		x = $"Background_Scrollband".region_rect.position.x
+		$"Background_Scrollband".region_rect.position.x = fmod(x + delta * -300, 1920)
 	
 	x = $"Wolken/Wolken_1".region_rect.position.x 
 	$"Wolken/Wolken_1".region_rect.position.x = fmod(x + delta * 23, 1920)

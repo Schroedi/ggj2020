@@ -4,6 +4,5 @@
 
 [node name="dingTeil" type="RigidBody2D"]
 gravity_scale = 0.0
-linear_velocity = Vector2( 300, 0 )
 linear_damp = 0.0
 script = ExtResource( 1 )

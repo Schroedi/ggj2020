@@ -100,8 +100,7 @@ var spawnDings = [
 
 var dingScene = preload("res://Game/ding.tscn")
 # Called when the node enters the scene tree for the first time.
-func _ready():	
-	set_physics_process(false)
+func _ready():
 #	spawnDings = []
 #	for i in range(100):
 #		spawnDings.append([i*1, ['a', 'a2', 'r', 'r2', 'g', 'g2', 'b', 'b2']])

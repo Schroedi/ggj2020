@@ -1,15 +1,16 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Game/dingTeil.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/GFX/Background_Scrollband.png" type="Texture" id=2]
 [ext_resource path="res://Game/SFX/Rhythmic Repair Ranch.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Game/MainScene.gd" type="Script" id=4]
 [ext_resource path="res://Game/GFX/Background_Ranch.png" type="Texture" id=5]
-[ext_resource path="res://Game/GFX/erklaerinfographic.png" type="Texture" id=6]
+[ext_resource path="res://Game/ding.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game/p1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Game/GFX/Background_Vorderkante.png" type="Texture" id=8]
 [ext_resource path="res://Game/GFX/Wolken_1.png" type="Texture" id=9]
 [ext_resource path="res://Game/GFX/Wolken_2.png" type="Texture" id=10]
+[ext_resource path="res://Game/GFX/erklaerinfographic.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 50, 200 )
@@ -86,8 +87,28 @@ position = Vector2( 2132.44, 876.82 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Delete"]
 shape = SubResource( 1 )
 
+[node name="Start bodies" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+linear_damp = 0.0
+
+[node name="ding" parent="Start bodies" instance=ExtResource( 6 )]
+position = Vector2( 611.022, 860.851 )
+types = [ "r", "g" ]
+
+[node name="ding2" parent="Start bodies" instance=ExtResource( 6 )]
+position = Vector2( 905.357, 863.936 )
+types = [ "g", "b" ]
+
+[node name="ding3" parent="Start bodies" instance=ExtResource( 6 )]
+position = Vector2( 1192.29, 859.616 )
+types = [ "r", "a" ]
+
+[node name="ding4" parent="Start bodies" instance=ExtResource( 6 )]
+position = Vector2( 1473.04, 867.638 )
+types = [ "a", "b" ]
+
 [node name="info" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
-texture = ExtResource( 6 )
+texture = ExtResource( 11 )
 [connection signal="area_entered" from="Ende" to="." method="_on_Ende_area_entered"]
 [connection signal="area_entered" from="Delete" to="." method="_on_Delete_area_entered"]

@@ -10,7 +10,7 @@ var started = false
 # profiling in the browser. Running without a browser is supported by defualt.
 var offlineDebug = false
 
-var botsOnly = true
+var botsOnly = false
 
 # Input dict with an entry for each player. See updateInputs.
 var inputs = {}
