@@ -36,28 +36,78 @@ func _ready():
 #	$p1/b.visible = types.has('b')
 #	$p1/a.visible = types.has('a')
 	
+	
+	
 	if name == 'p1':
 		$HorseA.visible = true
 		$HorseB.visible = true
 		$Horse_Head.visible = true
+		$Wiggle.root_node = $Horse_Head.get_path()
+		
+		var anim = $Wiggle.get_animation("Headshake").duplicate()
+		var v = anim.track_get_key_value(0, 1)
+		# amplitude scaling
+		anim.track_set_key_value(0, 1, v * 0.5)
+		$Wiggle.remove_animation("Headshake")
+		$Wiggle.add_animation("Headshake", anim)
+		
+		# time offset
+		$Wiggle.seek(0.1)
+		
 		animA = $HorseA
 		animB = $HorseB
 	if name == 'p2':
 		$PenguinA.visible = true
 		$PenguinB.visible = true
 		$Penguin_Head.visible = true
+		$Wiggle.root_node = $Penguin_Head.get_path()
+		
+		var anim = $Wiggle.get_animation("Headshake").duplicate()
+		var v = anim.track_get_key_value(0, 1)
+		# amplitude scaling
+		anim.track_set_key_value(0, 1, v * 1)
+		$Wiggle.remove_animation("Headshake")
+		$Wiggle.add_animation("Headshake", anim)
+		
+		# time offset
+		$Wiggle.seek(0.1)
+		
 		animA = $PenguinA
 		animB = $PenguinB
 	if name == 'p3':
 		$DogA.visible = true
 		$DogB.visible = true
 		$Dog_Head.visible = true
+		$Wiggle.root_node = $Dog_Head.get_path()
+		
+		var anim = $Wiggle.get_animation("Headshake").duplicate()
+		var v = anim.track_get_key_value(0, 1)
+		# amplitude scaling
+		anim.track_set_key_value(0, 1, v*2)
+		$Wiggle.remove_animation("Headshake")
+		$Wiggle.add_animation("Headshake", anim)
+		
+		# time offset
+		$Wiggle.seek(0.3)
+		
 		animA = $DogA
 		animB = $DogB
 	if name == 'p4':
 		$PigA.visible = true
 		$PigB.visible = true
 		$Pig_Head.visible = true
+		$Wiggle.root_node = $Pig_Head.get_path()
+		
+		var anim = $Wiggle.get_animation("Headshake").duplicate()
+		var v = anim.track_get_key_value(0, 1)
+		# amplitude scaling
+		anim.track_set_key_value(0, 1, v * 0.2)
+		$Wiggle.remove_animation("Headshake")
+		$Wiggle.add_animation("Headshake", anim)
+		
+		# time offset
+		$Wiggle.seek(0.1)
+		
 		animA = $PigA
 		animB = $PigB
 	
@@ -67,6 +117,7 @@ func _ready():
 	$s1.stream = sounds[types[0]][audioType[0]]
 	$s2.stream = sounds[types[1]][audioType[1]]
 	$UpdateACInfo.start()
+	$Wiggle.play("Headshake")
 
 func _input(event:InputEvent):
 	if event.is_action_pressed(name + "a"):

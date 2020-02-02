@@ -77,6 +77,23 @@ size = 42
 use_filter = true
 font_data = ExtResource( 4 )
 
+[sub_resource type="Animation" id=12]
+resource_name = "Headshake"
+length = 0.48
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -25.0, 0.0 ]
+}
+
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 8 ) ],
@@ -140,23 +157,6 @@ animations = [ {
 "name": "default",
 "speed": 20.0
 } ]
-
-[sub_resource type="Animation" id=12]
-resource_name = "Headshake"
-length = 0.48
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Dog_Head:rotation_degrees")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.24, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, -25.0, 0.0 ]
-}
 
 [node name="p1_root" type="Node2D"]
 script = ExtResource( 3 )
@@ -234,23 +234,33 @@ wait_time = 0.3
 wait_time = 0.4
 one_shot = true
 
+[node name="Wiggle" type="AnimationPlayer" parent="."]
+anims/Headshake = SubResource( 12 )
+
 [node name="Pig_Head" type="Sprite" parent="."]
 visible = false
+position = Vector2( 7.53622, 67.0774 )
 texture = ExtResource( 5 )
+offset = Vector2( -7.53622, -67.0774 )
 
 [node name="Horse_Head" type="Sprite" parent="."]
 visible = false
+position = Vector2( 33.4425, -4.51804 )
 texture = ExtResource( 16 )
+offset = Vector2( -33.4425, 4.51804 )
 
 [node name="Dog_Head" type="Sprite" parent="."]
+visible = false
 position = Vector2( 21.5221, 59.5367 )
-rotation = -0.39555
+rotation = -0.0671623
 texture = ExtResource( 12 )
 offset = Vector2( -21.5221, -59.5367 )
 
 [node name="Penguin_Head" type="Sprite" parent="."]
 visible = false
+position = Vector2( 27.7902, -2.63394 )
 texture = ExtResource( 13 )
+offset = Vector2( -27.7902, 2.63394 )
 
 [node name="PigA" type="AnimatedSprite" parent="."]
 visible = false
@@ -283,8 +293,5 @@ frames = SubResource( 10 )
 [node name="PenguinB" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 11 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Headshake = SubResource( 12 )
 [connection signal="timeout" from="UpdateACInfo" to="." method="_on_UpdateACInfo_timeout"]
 [connection signal="timeout" from="AiDisableTimer" to="." method="_on_AiDisableTimer_timeout"]
