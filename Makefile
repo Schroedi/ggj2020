@@ -5,8 +5,8 @@ ifeq ($(USERNAME),$(UsNAME))
 	GODOT=/c/Tools/Godot_v3.2-stable_mono_win64/Godot_v3.2-stable_mono_win64.exe
 endif
 
-#EXPORT=--export
-EXPORT=--export-debug
+EXPORT=--export
+#EXPORT=--export-debug
 
 .PHONY: all screen controller serve publish
 
@@ -25,7 +25,5 @@ controller:
 serve:
 	cd Exported && python -m http.server 8000
 
-te:
-	
 publish:
 	rsync -c Exported/* keksdev.de:/var/www/html/keksdev/acgodot/
