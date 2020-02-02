@@ -85,5 +85,6 @@ func updatePlayerList():
 
 func _on_GameStartTimer_timeout():
 	Airconsole.started =true
+	$MainScene/info.visible = false
 	$MainScene/dingTeil.set_physics_process(true)
 	$MainScene/AudioStreamPlayer.play()
