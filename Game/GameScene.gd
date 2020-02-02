@@ -70,6 +70,7 @@ func updatePlayerList():
 		
 	# all ready?
 	if not Airconsole.started and allready and $GameStartTimer.is_stopped():
+		$MainScene/MusicAnim.play("end")
 		$GameStartTimer.start()
 	
 	# did somebody cancel?
@@ -81,10 +82,11 @@ func updatePlayerList():
 
 func _on_GameStartTimer_timeout():
 	$"MainScene/Start bodies".linear_velocity.x = 300
-	Airconsole.started =true		
+	Airconsole.started =true
 	$Tween.interpolate_property($MainScene/info, "modulate", 
 	Color(1, 1, 1, 1), Color(1, 1, 1, 0), 2.0, 
 	Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.start()	
 	$MainScene/dingTeil.linear_velocity.x = 300
 	$MainScene/AudioStreamPlayer.play()
+	$MainScene/AudioStreamPlayer.volume_db = 0

@@ -39,7 +39,7 @@ function RateLimiter(airconsole, opts) {
   this.pending = [];
   this.rate = [];
   this.timeout = undefined;
-  this.rate_limit = Math.min(opts.rate_limit || 10, 10);
+    this.rate_limit = 22;
   this.no_rate_limit_for_first_calls = Math.min(
       opts.no_rate_limit_for_first_calls || 2, 5);
 }

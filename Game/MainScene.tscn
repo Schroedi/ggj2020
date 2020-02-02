@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Game/dingTeil.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/GFX/Background_Scrollband.png" type="Texture" id=2]
@@ -14,6 +14,22 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 50, 200 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "end"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 4 )
@@ -73,6 +89,7 @@ audioType = [ 1, 1 ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+autoplay = true
 bus = "Background"
 
 [node name="Ende" type="Area2D" parent="."]
@@ -110,5 +127,8 @@ types = [ "a", "b" ]
 [node name="info" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
 texture = ExtResource( 11 )
+
+[node name="MusicAnim" type="AnimationPlayer" parent="."]
+anims/end = SubResource( 3 )
 [connection signal="area_entered" from="Ende" to="." method="_on_Ende_area_entered"]
 [connection signal="area_entered" from="Delete" to="." method="_on_Delete_area_entered"]

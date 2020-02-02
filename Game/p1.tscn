@@ -38,7 +38,7 @@ extents = Vector2( 7.10449, 201.096 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "hit"
-length = 0.4
+length = 0.3
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:position:x")
 tracks/0/interp = 1
@@ -66,13 +66,13 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
+"times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "Headshake"
 length = 0.48
 loop = true
@@ -89,7 +89,7 @@ tracks/0/keys = {
 "values": [ 0.0, -25.0, 0.0 ]
 }
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 8 ) ],
 "loop": false,
@@ -97,7 +97,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 9 ) ],
 "loop": false,
@@ -105,7 +105,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 30 ), ExtResource( 28 ), ExtResource( 31 ), ExtResource( 31 ) ],
 "loop": false,
@@ -113,7 +113,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ ExtResource( 29 ), ExtResource( 32 ), ExtResource( 27 ), ExtResource( 27 ) ],
 "loop": false,
@@ -121,7 +121,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [ ExtResource( 14 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 15 ) ],
 "loop": false,
@@ -129,7 +129,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [ ExtResource( 21 ), ExtResource( 19 ), ExtResource( 24 ), ExtResource( 24 ) ],
 "loop": false,
@@ -137,7 +137,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
 "frames": [ ExtResource( 22 ), ExtResource( 26 ), ExtResource( 18 ), ExtResource( 18 ) ],
 "loop": false,
@@ -145,7 +145,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=12]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ ExtResource( 20 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 25 ) ],
 "loop": false,
@@ -163,7 +163,6 @@ position = Vector2( 0, 136.009 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="p1/Area2D2"]
 shape = SubResource( 1 )
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="p1"]
 anims/hit = SubResource( 2 )
@@ -216,7 +215,7 @@ wait_time = 0.4
 one_shot = true
 
 [node name="Wiggle" type="AnimationPlayer" parent="."]
-anims/Headshake = SubResource( 4 )
+anims/Headshake = SubResource( 3 )
 
 [node name="Pig_Head" type="Sprite" parent="."]
 visible = false
@@ -245,35 +244,35 @@ offset = Vector2( -27.7902, 2.63394 )
 
 [node name="PigA" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 
 [node name="PigB" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 6 )
+frames = SubResource( 5 )
 
 [node name="HorseA" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 7 )
+frames = SubResource( 6 )
 
 [node name="HorseB" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 8 )
+frames = SubResource( 7 )
 
 [node name="DogA" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 9 )
+frames = SubResource( 8 )
 
 [node name="DogB" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 10 )
+frames = SubResource( 9 )
 
 [node name="PenguinA" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 11 )
+frames = SubResource( 10 )
 
 [node name="PenguinB" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 12 )
+frames = SubResource( 11 )
 
 [node name="Fail" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 33 )
