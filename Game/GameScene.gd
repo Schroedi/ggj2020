@@ -50,7 +50,7 @@ func updatePlayerList():
 		#players.append(p)
 	
 	# map player infos to ui and players
-	var allready = true
+	var allready = not OS.has_feature('JavaScript') or len(Airconsole.inst.players) > 0
 	for i in range(len(Airconsole.inst.players)):
 		var p = Airconsole.inst.players[i]
 		#print("player: " + str(p))
