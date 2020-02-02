@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Game/SFX/BrooklynSound 1.wav" type="AudioStream" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://Game/GFX/Character/Horse_a1.png" type="Texture" id=30]
 [ext_resource path="res://Game/GFX/Character/Horse_a3.png" type="Texture" id=31]
 [ext_resource path="res://Game/GFX/Character/Horse_b2.png" type="Texture" id=32]
+[ext_resource path="res://Game/SFX/AnimalSounds/Hahn 1.wav" type="AudioStream" id=33]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.10449, 201.096 )
@@ -293,5 +294,9 @@ frames = SubResource( 10 )
 [node name="PenguinB" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 11 )
+
+[node name="Fail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 33 )
+bus = "Effects"
 [connection signal="timeout" from="UpdateACInfo" to="." method="_on_UpdateACInfo_timeout"]
 [connection signal="timeout" from="AiDisableTimer" to="." method="_on_AiDisableTimer_timeout"]

@@ -19,3 +19,8 @@ func _on_Ende_area_entered(area):
 	var remTeile = area.get_parent().types.size()
 	Airconsole.score -= remTeile * 5
 	pass # Replace with function body.
+
+
+func _on_Delete_area_entered(area):
+	area.get_parent().queue_free()
+	pass # Replace with function body.

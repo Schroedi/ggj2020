@@ -75,4 +75,11 @@ position = Vector2( 1865.42, 875.578 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ende"]
 shape = SubResource( 1 )
+
+[node name="Delete" type="Area2D" parent="."]
+position = Vector2( 2132.44, 876.82 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Delete"]
+shape = SubResource( 1 )
 [connection signal="area_entered" from="Ende" to="." method="_on_Ende_area_entered"]
+[connection signal="area_entered" from="Delete" to="." method="_on_Delete_area_entered"]

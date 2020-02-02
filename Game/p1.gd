@@ -11,6 +11,10 @@ const sounds = {'g':[ preload("res://Game/SFX/Schraubschlussel.wav"), preload("r
 'b': [ preload("res://Game/SFX/Sage.wav"), preload("res://Game/SFX/Axt.wav") ],
 'a': [ preload("res://Game/SFX/Spray.wav"), preload("res://Game/SFX/Pinsel.wav") ]}
 
+const fail_sounds = {'p1':preload("res://Game/SFX/AnimalSounds/Pferd.wav"),
+					'p2':preload("res://Game/SFX/AnimalSounds/Hahn 1.wav"),
+					'p3':preload("res://Game/SFX/AnimalSounds/Hund.wav"),
+					'p4':preload("res://Game/SFX/AnimalSounds/Schwein.wav")}
 
 # id in airconsole player array
 var playerId = -2 setget set_player_id
@@ -31,12 +35,7 @@ func set_player_id(i):
 		$p1/Area2D2/CollisionShape2D.disabled = false
 
 func _ready():
-#	$p1/r.visible = types.has('r')
-#	$p1/g.visible = types.has('g')
-#	$p1/b.visible = types.has('b')
-#	$p1/a.visible = types.has('a')
-	
-	
+	$Fail.stream = fail_sounds[name]
 	
 	if name == 'p1':
 		$HorseA.visible = true
@@ -151,6 +150,7 @@ func collide(t):
 			type = t
 	
 	if t != type:
+		$Fail.play()
 		print('wrong tool!')
 		return false
 	
