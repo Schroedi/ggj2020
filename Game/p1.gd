@@ -52,7 +52,7 @@ func _ready():
 		$Wiggle.add_animation("Headshake", anim)
 		
 		# time offset
-		$Wiggle.seek(0.1)
+		$Wiggle.call_deferred("seek", 0.1)
 		
 		animA = $HorseA
 		animB = $HorseB
@@ -70,7 +70,7 @@ func _ready():
 		$Wiggle.add_animation("Headshake", anim)
 		
 		# time offset
-		$Wiggle.seek(0.1)
+		$Wiggle.call_deferred("seek", 0.1)
 		
 		animA = $PenguinA
 		animB = $PenguinB
@@ -83,12 +83,12 @@ func _ready():
 		var anim = $Wiggle.get_animation("Headshake").duplicate()
 		var v = anim.track_get_key_value(0, 1)
 		# amplitude scaling
-		anim.track_set_key_value(0, 1, v*2)
+		anim.track_set_key_value(0, 1, v*1.5)
 		$Wiggle.remove_animation("Headshake")
 		$Wiggle.add_animation("Headshake", anim)
 		
 		# time offset
-		$Wiggle.seek(0.3)
+		$Wiggle.call_deferred("seek", 0.3)
 		
 		animA = $DogA
 		animB = $DogB
@@ -106,7 +106,7 @@ func _ready():
 		$Wiggle.add_animation("Headshake", anim)
 		
 		# time offset
-		$Wiggle.seek(0.1)
+		$Wiggle.call_deferred("seek", 0.1)
 		
 		animA = $PigA
 		animB = $PigB

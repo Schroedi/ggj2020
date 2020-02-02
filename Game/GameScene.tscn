@@ -5,7 +5,7 @@
 [ext_resource path="res://Game/Fonts/NotoSans-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Game/Score.gd" type="Script" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 62
 use_filter = true
 font_data = ExtResource( 3 )
@@ -44,7 +44,7 @@ margin_top = 191.557
 margin_right = 995.123
 margin_bottom = 277.557
 grow_horizontal = 2
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "0"
 align = 1
 script = ExtResource( 4 )
